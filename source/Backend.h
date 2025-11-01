@@ -13,12 +13,14 @@ public:
     explicit Backend(QObject *parent = nullptr);
 
 public slots:
-    void loadData();
+    void initialize();
 
 private slots:
+    void loadData();
 
 
 signals:
+    void s();
     void dataLoaded();
     void noDataFound();
     void dataError(QString details);

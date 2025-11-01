@@ -62,6 +62,7 @@ void NetworkDownlaoder::handleReply(QNetworkReply *reply)
 
 void NetworkDownlaoder::saveDataToFile(const QByteArray &rawData, const QString &outputFile) const
 {
+    /// create path
     QFileInfo fileInfo(INPUT_DATA_FILE_PATH);
     QDir dir(fileInfo.absoluteDir());
     if(!dir.exists())
@@ -73,6 +74,7 @@ void NetworkDownlaoder::saveDataToFile(const QByteArray &rawData, const QString 
         }
     }
 
+    /// create file
     QFile file(INPUT_DATA_FILE_PATH);
     if(!file.open(QFile::WriteOnly))
     {
@@ -80,6 +82,7 @@ void NetworkDownlaoder::saveDataToFile(const QByteArray &rawData, const QString 
         throw "Can't open file to write";
     }
 
+    /// save file
     file.write(rawData);
     file.close();
 }

@@ -12,8 +12,11 @@ ApplicationWindow {
     Material.theme: Material.Dark
 
     Component.onCompleted: {
-        Backend.loadData();
+        mainLoader.sourceComponent = loading;
+        Backend.initialize()
     }
+
+
 
     Connections{
         target: Backend
