@@ -1,0 +1,57 @@
+[
+    {
+        "marka": "abc",
+        "model": "asdas",
+        "obrazek": "https://obrazek.jpg",
+        "uszkodzenia": [
+            {
+                "maybe?": ""
+            }
+        ]
+    },
+    {
+        "marka": "abc",
+        "model": "asdas",
+        "10 cech": true
+    },
+    {
+        "marka": "abc",
+        "model": "asdas",
+        "10 cech": true
+    },
+    {
+        "marka": "abc",
+        "model": "asdas",
+        "10 cech": true
+    },
+    {
+        "marka": "abc",
+        "model": "asdas",
+        "10 cech": true
+    },
+    {
+        "marka": "abc",
+        "model": "asdas",
+        "10 cech": true
+    },
+    {
+        "marka": "abc",
+        "model": "asdas",
+        "10 cech": true
+    },
+    {
+        "marka": "abc",
+        "model": "asdas",
+        "10 cech": true
+    },
+    {
+        "marka": "abc",
+        "model": "asdas",
+        "10 cech": true
+    },
+    {
+        "marka": "abc",
+        "model": "asdas",
+        "10 cech": true
+    }
+]
