@@ -4,7 +4,7 @@ Data::Data(QObject *parent)
     : QObject{parent}
 {}
 
-QList<Data *> Data::getDataList() const
+DataObjectList Data::getDataObjectList() const
 {
-    return m_dataList;
+    return m_dataObjectList;
 }

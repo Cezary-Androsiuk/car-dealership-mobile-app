@@ -12,4 +12,6 @@ public:
 signals:
 };
 
+typedef QList<DataObject *> DataObjectList;
+
 #endif // DATAOBJECT_H

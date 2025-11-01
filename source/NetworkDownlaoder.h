@@ -2,6 +2,10 @@
 #define NETWORKDOWNLAODER_H
 
 #include <QObject>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QMap>
 
 class NetworkDownlaoder : public QObject
 {
@@ -9,7 +13,22 @@ class NetworkDownlaoder : public QObject
 public:
     explicit NetworkDownlaoder(QObject *parent = nullptr);
 
+public slots:
+    void downloadFile(QString url, QString outputFile);
+
+private slots:
+    void handleReply(QNetworkReply *reply);
+
+private:
+    void saveDataToFile(const QByteArray &rawData, const QString &outputFile) const;
+
 signals:
+    void fileDownloaded(QString outputFile);
+    void fileDownloadingFailed(QString details);
+
+private:
+    QNetworkAccessManager m_netAccessManager;
+    QMap<QNetworkReply *, QString> m_repliesInProcess; /// [reply, outputFile]
 };
 
 #endif // NETWORKDOWNLAODER_H

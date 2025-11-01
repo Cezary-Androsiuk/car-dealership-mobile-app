@@ -20,6 +20,7 @@ ApplicationWindow {
 
         function onDataLoaded(){
             mainLoader.setSource("DataView.qml")
+            toast.show("Downloaded!")
         }
 
         function onNoDataFound(){
@@ -28,11 +29,27 @@ ApplicationWindow {
 
         function onDataError(details){
             mainLoader.setSource("DataErrorView.qml", { details: details })
+            toast.show("Download failed!")
         }
     }
 
     Loader{
         id: mainLoader
         anchors.fill: parent
+    }
+
+    Component{
+        id: loading
+        Item{
+            anchors.fill: parent
+            BusyIndicator{
+                anchors.centerIn: parent
+                running: true
+            }
+        }
+    }
+
+    Toast{
+        id: toast
     }
 }
