@@ -6,6 +6,7 @@
 #include <QThreadPool>
 
 #include "utils.h"
+#include "DataParser.h"
 
 Backend::Backend(QObject *parent)
     : QObject{parent}
@@ -49,6 +50,23 @@ void Backend::loadData()
         &m_networkDownloader, &NetworkDownlaoder::fileDownloadingFailed,
         this, &Backend::inputDataDownloadFailed,
         Qt::SingleShotConnection);
+
+    QStringList urls = {
+        "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg",
+        "https://ui-avatars.com/api/name=Jan+Kowalski&background=random.png?v=1.2",
+        "https://upload.wikimedia.org/wikipedia/commons/f/f7/Stack_Overflow_logo.svg",
+        "https://www.mojastrona.pl/gallery/Moje%20Wakacje%202024/Zdjęcie%20z%20plaży%20(1).jpeg",
+        "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop"
+    };
+
+    StrStrMap map = DataParser::createUrlFilesHashMap(urls);
+
+    qDebug() << "map:";
+    for(const auto &key : map.keys())
+    {
+        qDebug() << key << " : " << map[key];
+    }
+
 
     m_networkDownloader.downloadFile( INPUT_DATA_URL, NETWORK_PATH INPUT_DATA_FILE_NAME );
 }

@@ -24,6 +24,8 @@ private:
         QJsonObject &jsonObject,
         QStringList &collectedFiles);
 
+    static QString urlImageSuffix(const QString &url);
+
 signals:
 };
 

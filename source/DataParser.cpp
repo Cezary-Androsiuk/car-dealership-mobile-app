@@ -4,6 +4,8 @@
 #include <QFile>
 #include <QList>
 #include <QMap>
+#include <QUrl>
+#include <QFileInfo>
 #include <QCryptographicHash>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -51,7 +53,7 @@ QStringList DataParser::collectUrls(QString inputFilePath)
     /// iterate over object elements
     for(int i=0; i<inputArray.size(); i++)
     {
-        QJsonObject jsonObj = inputArray[i];
+        QJsonObject jsonObj = inputArray[i].toObject();
 
         /// collect urls for each object
         DataParser::collectUrlsFromObject(jsonObj, collectedUrls);
@@ -63,11 +65,30 @@ QStringList DataParser::collectUrls(QString inputFilePath)
 
 StrStrMap DataParser::createUrlFilesHashMap(const QStringList &urls)
 {
-    StrStrMap map;
+    const QCryptographicHash::Algorithm hashMethod = QCryptographicHash::Algorithm::Sha256;
 
+    StrStrMap map;
+    for(int i=0; i<urls.size(); i++)
+    {
+        QString url = urls[i];
+        // QString urlImageSuffix = DataParser::urlImageSuffix(url);
+        QByteArray urlByteArray = QCryptographicHash::hash(url.toUtf8(), hashMethod);
+        QString urlHash = QString::fromUtf8(urlByteArray.toHex());
+
+        map[url] = urlHash ;//+ "." + urlImageSuffix;
+    }
+
+    return map;
 }
 
 void DataParser::collectUrlsFromObject(QJsonObject &jsonObject, QStringList &collectedFiles)
 {
     /// collect urls for each object
+}
+
+QString DataParser::urlImageSuffix(const QString &url)
+{
+    QString urlPath = QUrl(url).path();
+    QFileInfo fileInfo(urlPath);
+    return fileInfo.suffix();
 }
