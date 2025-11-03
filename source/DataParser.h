@@ -2,6 +2,11 @@
 #define DATAPARSER_H
 
 #include <QObject>
+#include <QList>
+#include <QMap>
+#include <QJsonObject>
+
+typedef QMap<QString, QString> StrStrMap;
 
 class DataParser : public QObject
 {
@@ -9,7 +14,20 @@ class DataParser : public QObject
 public:
     explicit DataParser(QObject *parent = nullptr);
 
+    static QStringList collectUrls(QString inputFilePath);
+
+    static StrStrMap createUrlFilesHashMap(const QStringList &urls);
+
+private:
+    /// matching json pattern - explained under class
+    static void collectUrlsFromObject(
+        QJsonObject &jsonObject,
+        QStringList &collectedFiles);
+
 signals:
 };
+
+/// matching json pattern:  function was adjusted for the specyfic json file pattern
+///                         and cannot be used for the other one
 
 #endif // DATAPARSER_H
