@@ -12,8 +12,9 @@ ApplicationWindow {
     Material.theme: Material.Dark
 
     Component.onCompleted: {
+        console.log("main component completed")
         mainLoader.sourceComponent = loading;
-        Backend.startInitialization()
+        Backend.initialize();
     }
 
 

@@ -15,6 +15,8 @@ Backend::Backend(QObject *parent)
 
 void Backend::initialize()
 {
+    qDebug() << "starting initializer";
+
     /// start function asynchronysly;
     QObject::connect(this, &Backend::startInitialization, this, &Backend::loadData, Qt::SingleShotConnection);
     QFuture<void> future = QtConcurrent::run([this](){
@@ -26,6 +28,8 @@ void Backend::initialize()
 
 void Backend::loadData()
 {
+    qDebug() << "loading Data...";
+
     // emit this->dataLoaded();
     // emit this->noDataFound();
     // emit this->dataError("message");

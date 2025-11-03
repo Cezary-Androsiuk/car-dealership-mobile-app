@@ -26,11 +26,14 @@ void NetworkDownlaoder::downloadFile(QString url, QString outputFile)
     );
 
     m_repliesInProcess[reply] = outputFile;
+    qDebug() << "waiting for the reply...";
 }
 
 
 void NetworkDownlaoder::handleReply(QNetworkReply *reply)
 {
+    qDebug() << "reply received\n";
+
     /// get outputFile path
     QString outputFile = m_repliesInProcess[reply]; /// need to contain the value
     m_repliesInProcess.remove(reply);
@@ -60,14 +63,13 @@ void NetworkDownlaoder::handleReply(QNetworkReply *reply)
         return;
     }
 
-
     emit this->fileDownloaded(outputFile);
 }
 
 void NetworkDownlaoder::saveDataToFile(const QByteArray &rawData, const QString &outputFile) const
 {
     /// create path
-    QFileInfo fileInfo(INPUT_DATA_FILE_PATH);
+    QFileInfo fileInfo(outputFile);
     QDir dir(fileInfo.absoluteDir());
     if(!dir.exists())
     {
@@ -79,10 +81,10 @@ void NetworkDownlaoder::saveDataToFile(const QByteArray &rawData, const QString 
     }
 
     /// create file
-    QFile file(INPUT_DATA_FILE_PATH);
+    QFile file(outputFile);
     if(!file.open(QFile::WriteOnly))
     {
-        qWarning() << "Can't open file to write" << INPUT_DATA_FILE_PATH;
+        qWarning() << "Can't open file to write" << outputFile;
         throw "Can't open file to write";
     }
 
