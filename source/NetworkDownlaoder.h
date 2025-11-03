@@ -21,10 +21,13 @@ private slots:
 
 private:
     void saveDataToFile(const QByteArray &rawData, const QString &outputFile) const;
+    void handleProgressCounterChanged();
 
 signals:
     void fileDownloaded(QString outputFile);
     void fileDownloadingFailed(QString details);
+
+    void allFilesDownloaded();
 
 private:
     QNetworkAccessManager m_netAccessManager;

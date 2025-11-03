@@ -16,9 +16,9 @@ Backend::Backend(QObject *parent)
 void Backend::initialize()
 {
     /// start function asynchronysly;
-    QObject::connect(this, &Backend::s, this, &Backend::loadData, Qt::SingleShotConnection);
+    QObject::connect(this, &Backend::startInitialization, this, &Backend::loadData, Qt::SingleShotConnection);
     QFuture<void> future = QtConcurrent::run([this](){
-        emit this->s();
+        emit this->startInitialization();
     });
 }
 
@@ -38,21 +38,32 @@ void Backend::loadData()
 
     QObject::connect(
         &m_networkDownloader, &NetworkDownlaoder::fileDownloaded,
-        this, [&](QString outputFile){
-
-        qDebug() << "Downloaded!" << outputFile;
-        emit this->dataLoaded();
-    }, Qt::SingleShotConnection);
+        this, &Backend::inputDataDownloaded,
+        Qt::SingleShotConnection);
 
     QObject::connect(
         &m_networkDownloader, &NetworkDownlaoder::fileDownloadingFailed,
-        this, [&](QString details){
-        qDebug() << "Download failed!" << details;
-        emit this->dataError(details);
-    }, Qt::SingleShotConnection);
+        this, &Backend::inputDataDownloadFailed,
+        Qt::SingleShotConnection);
 
+    m_networkDownloader.downloadFile( INPUT_DATA_URL, NETWORK_PATH INPUT_DATA_FILE_NAME );
+}
 
-    std::this_thread::sleep_for(std::chrono::seconds(5));
+void Backend::inputDataDownloaded(QString outputFile)
+{
+    qDebug() << "Downloaded!" << outputFile;
 
-    m_networkDownloader.downloadFile( INPUT_DATA_URL, INPUT_DATA_FILE_PATH );
+    // process input file
+    // create image names hash map
+    // download images
+    // react on allFilesDownloaded signal
+
+    emit this->dataLoaded();
+}
+
+void Backend::inputDataDownloadFailed(QString details)
+{
+    qDebug() << "Download failed!" << details;
+    /// emit toast info
+    emit this->dataError(details);
 }

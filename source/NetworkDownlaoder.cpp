@@ -13,6 +13,9 @@ NetworkDownlaoder::NetworkDownlaoder(QObject *parent)
     : QObject{parent}
 {
     QObject::connect(&m_netAccessManager, &QNetworkAccessManager::finished, this, &NetworkDownlaoder::handleReply);
+
+    QObject::connect(this, &NetworkDownlaoder::fileDownloaded, this, &NetworkDownlaoder::handleProgressCounterChanged);
+    QObject::connect(this, &NetworkDownlaoder::fileDownloadingFailed, this, &NetworkDownlaoder::handleProgressCounterChanged);
 }
 
 void NetworkDownlaoder::downloadFile(QString url, QString outputFile)
@@ -28,6 +31,10 @@ void NetworkDownlaoder::downloadFile(QString url, QString outputFile)
 
 void NetworkDownlaoder::handleReply(QNetworkReply *reply)
 {
+    /// get outputFile path
+    QString outputFile = m_repliesInProcess[reply]; /// need to contain the value
+    m_repliesInProcess.remove(reply);
+
     if(reply->error() != QNetworkReply::NoError)
     {
         qWarning() << "Downloading Failed! Reason: " << reply->errorString();
@@ -35,10 +42,6 @@ void NetworkDownlaoder::handleReply(QNetworkReply *reply)
         reply->deleteLater();
         return;
     }
-
-    /// get outputFile path
-    QString outputFile = m_repliesInProcess[reply]; /// need to contain the value
-    m_repliesInProcess.remove(reply);
 
     /// read data from reply
     QByteArray rawData = reply->readAll();
@@ -56,6 +59,7 @@ void NetworkDownlaoder::handleReply(QNetworkReply *reply)
             QString::asprintf("Saving File Failed! Reason: %s", e.what()) );
         return;
     }
+
 
     emit this->fileDownloaded(outputFile);
 }
@@ -86,3 +90,12 @@ void NetworkDownlaoder::saveDataToFile(const QByteArray &rawData, const QString 
     file.write(rawData);
     file.close();
 }
+
+void NetworkDownlaoder::handleProgressCounterChanged()
+{
+    if(m_repliesInProcess.isEmpty())
+    {
+        emit this->allFilesDownloaded();
+    }
+}
+

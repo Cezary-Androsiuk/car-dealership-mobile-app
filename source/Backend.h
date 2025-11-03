@@ -17,10 +17,11 @@ public slots:
 
 private slots:
     void loadData();
-
+    void inputDataDownloaded(QString outputFile);
+    void inputDataDownloadFailed(QString details);
 
 signals:
-    void s();
+    void startInitialization();
     void dataLoaded();
     void noDataFound();
     void dataError(QString details);

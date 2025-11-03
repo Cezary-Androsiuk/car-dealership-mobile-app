@@ -13,7 +13,7 @@ ApplicationWindow {
 
     Component.onCompleted: {
         mainLoader.sourceComponent = loading;
-        Backend.initialize()
+        Backend.startInitialization()
     }
 
 
