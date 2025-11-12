@@ -21,10 +21,13 @@ NetworkDownlaoder::NetworkDownlaoder(QObject *parent)
 void NetworkDownlaoder::addFileToDownload(QString url, QString outputFile)
 {
     m_requestsInQueue[new QNetworkRequest( QUrl(url) )] = outputFile;
+    qDebug() << "added file to download from:" << url << ", to:" << outputFile;
 }
 
 void NetworkDownlaoder::startDownloads()
 {
+    qDebug() << "starting downloads...";
+
     if(m_requestsInQueue.empty())
     {
         qWarning() << "Nothing added to download!";
@@ -47,7 +50,7 @@ void NetworkDownlaoder::startDownloads()
 
 void NetworkDownlaoder::handleReply(QNetworkReply *reply)
 {
-    qDebug() << "reply received\n";
+    qDebug() << "reply received";
 
     /// get outputFile path
     QString outputFile = m_repliesInProcess[reply]; /// need to contain the value
@@ -78,6 +81,7 @@ void NetworkDownlaoder::handleReply(QNetworkReply *reply)
         return;
     }
 
+    qDebug() << "file downloaded correctly:" << outputFile;
     emit this->fileDownloaded(outputFile);
 }
 
