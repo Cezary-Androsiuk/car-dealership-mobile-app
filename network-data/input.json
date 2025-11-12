@@ -2,7 +2,7 @@
     {
         "marka": "abc",
         "model": "asdas",
-        "obrazek": "https://obrazek.jpg",
+        "obrazek": "https://img.freepik.com/free-photo/person-near-alternative-energy-plant_23-2149192730.jpg",
         "uszkodzenia": [
             {
                 "maybe?": ""
@@ -12,11 +12,13 @@
     {
         "marka": "abc",
         "model": "asdas",
+        "obrazek": "https://img.freepik.com/free-photo/person-near-alternative-energy-plant_23-2149192708.jpg",
         "10 cech": true
     },
     {
         "marka": "abc",
         "model": "asdas",
+        "obrazek": "https://img.freepik.com/premium-photo/person-near-alternative-energy-plant_23-2149192755.jpg",
         "10 cech": true
     },
     {

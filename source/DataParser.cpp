@@ -127,9 +127,14 @@ bool DataParser::saveUrlFilesHashMap(const StrStrMap &map, QString filePath)
     return true;
 }
 
-void DataParser::collectUrlsFromObject(QJsonObject &jsonObject, QStringList &collectedFiles)
+void DataParser::collectUrlsFromObject(QJsonObject &jsonObject, QStringList &collectedUrls)
 {
     /// collect urls for each object
+    if(jsonObject.contains("obrazek"))
+    {
+        QString url = jsonObject["obrazek"].toString();
+        collectedUrls.append(url);
+    }
 }
 
 QString DataParser::urlImageSuffix(const QString &url)

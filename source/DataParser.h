@@ -24,7 +24,7 @@ private:
     /// matching json pattern - explained under class
     static void collectUrlsFromObject(
         QJsonObject &jsonObject,
-        QStringList &collectedFiles);
+        QStringList &collectedUrls);
 
     static QString urlImageSuffix(const QString &url);
 
