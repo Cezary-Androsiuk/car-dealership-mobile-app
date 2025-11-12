@@ -22,6 +22,7 @@ Item {
 
         Label{
             anchors.horizontalCenter: parent.horizontalCenter
+            width: parent.width
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
             text: dataErrorView.details

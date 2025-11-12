@@ -11,6 +11,7 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QJsonValue>
+#include <QDir>
 
 DataParser::DataParser(QObject *parent)
     : QObject{parent}
@@ -71,6 +72,11 @@ StrStrMap DataParser::createUrlFilesHashMap(const QStringList &urls)
     for(int i=0; i<urls.size(); i++)
     {
         QString url = urls[i];
+
+        /// duplicates are allowed
+        if(map.contains(url))
+            continue;
+
         // QString urlImageSuffix = DataParser::urlImageSuffix(url);
         QByteArray urlByteArray = QCryptographicHash::hash(url.toUtf8(), hashMethod);
         QString urlHash = QString::fromUtf8(urlByteArray.toHex());
@@ -79,6 +85,46 @@ StrStrMap DataParser::createUrlFilesHashMap(const QStringList &urls)
     }
 
     return map;
+}
+
+bool DataParser::saveUrlFilesHashMap(const StrStrMap &map, QString filePath)
+{
+    QJsonObject object;
+    for(auto i=map.keyBegin(); i!=map.keyEnd(); i++)
+    {
+        object[*i] = map[*i];
+    }
+
+    QJsonDocument jsonDoc;
+    jsonDoc.setObject(object);
+
+
+    if(QFile::exists(filePath))
+    {
+        if(!QFile::remove(filePath))
+            qWarning() << "deleting" << filePath << "failed!";
+    }
+
+    /// create path
+    QFileInfo fileInfo(filePath);
+    QDir fileDir = fileInfo.dir();
+    if(!fileDir.exists())
+    {
+        fileDir.mkpath(".");
+    }
+
+
+    QFile file(filePath);
+    if(!file.open(QFile::WriteOnly))
+    {
+        qCritical() << "Can't open file for write" << filePath;
+        return false;
+    }
+
+    file.write(jsonDoc.toJson());
+    file.close();
+
+    return true;
 }
 
 void DataParser::collectUrlsFromObject(QJsonObject &jsonObject, QStringList &collectedFiles)

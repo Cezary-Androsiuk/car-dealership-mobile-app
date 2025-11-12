@@ -18,6 +18,7 @@ public slots:
 private slots:
     void loadData();
     void inputDataDownloaded(QString outputFile);
+    void imagesDownloaded();
     void inputDataDownloadFailed(QString details);
 
 signals:

@@ -13,8 +13,9 @@ class NetworkDownlaoder : public QObject
 public:
     explicit NetworkDownlaoder(QObject *parent = nullptr);
 
-public slots:
-    void downloadFile(QString url, QString outputFile);
+public:
+    void addFileToDownload(QString url, QString outputFile);
+    void startDownloads();
 
 private slots:
     void handleReply(QNetworkReply *reply);
@@ -31,7 +32,10 @@ signals:
 
 private:
     QNetworkAccessManager m_netAccessManager;
+
+    QMap<QNetworkRequest *, QString> m_requestsInQueue; /// [request, outputFile]
     QMap<QNetworkReply *, QString> m_repliesInProcess; /// [reply, outputFile]
+
 };
 
 #endif // NETWORKDOWNLAODER_H

@@ -18,15 +18,30 @@ NetworkDownlaoder::NetworkDownlaoder(QObject *parent)
     QObject::connect(this, &NetworkDownlaoder::fileDownloadingFailed, this, &NetworkDownlaoder::handleProgressCounterChanged);
 }
 
-void NetworkDownlaoder::downloadFile(QString url, QString outputFile)
+void NetworkDownlaoder::addFileToDownload(QString url, QString outputFile)
 {
-    /// following code will emit signal handled by NetworkDownlaoder::handleReply
-    QNetworkReply *reply = m_netAccessManager.get(
-        QNetworkRequest( QUrl(url) )
-    );
+    m_requestsInQueue[new QNetworkRequest( QUrl(url) )] = outputFile;
+}
 
-    m_repliesInProcess[reply] = outputFile;
-    qDebug() << "waiting for the reply...";
+void NetworkDownlaoder::startDownloads()
+{
+    if(m_requestsInQueue.empty())
+    {
+        qWarning() << "Nothing added to download!";
+        emit this->allFilesDownloaded();
+    }
+
+    for(auto i=m_requestsInQueue.keyBegin(); i!=m_requestsInQueue.keyEnd(); ++i)
+    {
+        QNetworkRequest *request = *i;
+        /// following code will emit signal handled by NetworkDownlaoder::handleReply
+        QNetworkReply *reply = m_netAccessManager.get(*request);
+
+        m_repliesInProcess[reply] = m_requestsInQueue[request];
+        delete request;
+    }
+
+    m_requestsInQueue.clear();
 }
 
 

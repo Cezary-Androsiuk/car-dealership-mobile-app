@@ -18,6 +18,8 @@ public:
 
     static StrStrMap createUrlFilesHashMap(const QStringList &urls);
 
+    static bool saveUrlFilesHashMap(const StrStrMap &map, QString filePath);
+
 private:
     /// matching json pattern - explained under class
     static void collectUrlsFromObject(

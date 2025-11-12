@@ -68,20 +68,40 @@ void Backend::loadData()
     }
 
 
-    m_networkDownloader.downloadFile( INPUT_DATA_URL, NETWORK_PATH INPUT_DATA_FILE_NAME );
+    m_networkDownloader.addFileToDownload( INPUT_DATA_URL, NETWORK_PATH INPUT_DATA_FILE_NAME );
+    m_networkDownloader.startDownloads();
 }
 
 void Backend::inputDataDownloaded(QString outputFile)
 {
     qDebug() << "Downloaded!" << outputFile;
 
-    // process input file
-    // create image names hash map
-    // download images
-    // react on allFilesDownloaded signal
+    /// process input file
+    QStringList urls = DataParser::collectUrls( NETWORK_PATH INPUT_DATA_FILE_NAME );
+    StrStrMap urlsHashMap = DataParser::createUrlFilesHashMap(urls);
+    DataParser::saveUrlFilesHashMap(urlsHashMap, NETWORK_PATH URLS_HASH_MAP_FILE_NAME);
+
+    /// start downloading images
+    QObject::connect(
+        &m_networkDownloader, &NetworkDownlaoder::allFilesDownloaded,
+        this, &Backend::imagesDownloaded, Qt::SingleShotConnection);
+
+    for(auto i=urlsHashMap.keyBegin(); i!=urlsHashMap.keyEnd(); ++i)
+    {
+        m_networkDownloader.addFileToDownload(
+            *i, (NETWORK_IMAGES_PATH) + urlsHashMap[*i]);
+    }
+    m_networkDownloader.startDownloads();
+
+}
+
+void Backend::imagesDownloaded()
+{
 
     emit this->dataLoaded();
 }
+
+
 
 void Backend::inputDataDownloadFailed(QString details)
 {

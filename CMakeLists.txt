@@ -5,6 +5,8 @@ project(CarDealershipMobileApp VERSION 0.1 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Quick Concurrent)
+find_package(Qt6 REQUIRED COMPONENTS Core)
+find_package(Qt6 REQUIRED COMPONENTS Core)
 
 qt_standard_project_setup(REQUIRES 6.8)
 
@@ -27,6 +29,7 @@ qt_add_qml_module(appCarDealershipMobileApp
     SOURCES source/DataParser.h source/DataParser.cpp
     SOURCES source/utils.h
     QML_FILES qml/Toast.qml
+    SOURCES
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -43,6 +46,8 @@ set_target_properties(appCarDealershipMobileApp PROPERTIES
 target_link_libraries(appCarDealershipMobileApp
     PRIVATE Qt6::Quick Qt6::Concurrent
 )
+target_link_libraries(appCarDealershipMobileApp PRIVATE Qt6::Core)
+target_link_libraries(appCarDealershipMobileApp PRIVATE Qt6::Core)
 
 include(GNUInstallDirs)
 install(TARGETS appCarDealershipMobileApp
