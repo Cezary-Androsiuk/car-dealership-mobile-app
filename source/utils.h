@@ -15,7 +15,7 @@
 
 
 /// ########################### FILES ###########################
-#define INPUT_DATA_URL "https://raw.githubusercontent.com/Cezary-Androsiuk/_car-dealership-mobile-app/refs/heads/master/network-data/input.json"
+#define INPUT_DATA_URL "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/input.json"
 #define INPUT_DATA_FILE_NAME "input.json"
 #define URLS_HASH_MAP_FILE_NAME "urlsHashMap.json"
 
