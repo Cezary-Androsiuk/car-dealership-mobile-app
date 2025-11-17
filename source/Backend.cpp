@@ -4,6 +4,7 @@
 #include <thread>
 #include <QtConcurrent/QtConcurrentRun>
 #include <QThreadPool>
+#include <QGuiApplication>
 
 #include "utils.h"
 #include "DataParser.h"
@@ -31,15 +32,7 @@ void Backend::loadData()
 {
     qDebug() << "loading Data...";
 
-    if(!QDir(DATA_PATH).removeRecursively())
-    {
-        qWarning() << "deleting '" DATA_PATH "' failed!";
-    }
-
-
-    // emit this->dataLoaded();
-    // emit this->noDataFound();
-    // emit this->dataError("message");
+    emit this->dataStatus("Downloading input json...");
 
     QDir networkDir( NETWORK_PATH );
     if(!networkDir.removeRecursively())
@@ -65,10 +58,15 @@ void Backend::inputDataDownloaded(QString outputFile)
 {
     qDebug() << "Downloaded!" << outputFile;
 
+    emit this->dataStatus("Parsing data...");
+    QGuiApplication::processEvents();
+
     /// process input file
     QStringList urls = DataParser::collectUrls( NETWORK_PATH INPUT_DATA_FILE_NAME );
     StrStrMap urlsHashMap = DataParser::createUrlFilesHashMap(urls);
     DataParser::saveUrlFilesHashMap(urlsHashMap, NETWORK_PATH URLS_HASH_MAP_FILE_NAME);
+
+    emit this->dataStatus("Downloading images...");
 
     /// start downloading images
     QObject::connect(
@@ -86,8 +84,8 @@ void Backend::inputDataDownloaded(QString outputFile)
 
 void Backend::imagesDownloaded()
 {
-
     emit this->dataLoaded();
+
 }
 
 

@@ -23,6 +23,8 @@ private slots:
 
 signals:
     void startInitialization();
+
+    void dataStatus(QString status);
     void dataLoaded();
     void noDataFound();
     void dataError(QString details);
