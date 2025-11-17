@@ -3,7 +3,6 @@ import QtQuick.Controls.Material
 
 Item {
     id: dataErrorView
-
     required property string details
 
     Column{
@@ -21,10 +20,16 @@ Item {
         }
 
         Label{
-            anchors.horizontalCenter: parent.horizontalCenter
-            width: parent.width
+            anchors{
+                left: parent.left
+                right: parent.right
+            }
+
             verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
+
+            wrapMode: Text.WordWrap
+
             text: dataErrorView.details
         }
     }

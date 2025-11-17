@@ -27,6 +27,7 @@ signals:
     void dataStatus(QString status);
     void dataLoaded();
     void noDataFound();
+    void showToast(QString message);
     void dataError(QString details);
 
 private:

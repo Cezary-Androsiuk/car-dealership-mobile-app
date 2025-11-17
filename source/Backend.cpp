@@ -56,6 +56,11 @@ void Backend::loadData()
 
 void Backend::inputDataDownloaded(QString outputFile)
 {
+    /// disconnect not used (oposite) connection
+    QObject::disconnect(
+        &m_networkDownloader, &NetworkDownlaoder::fileDownloadingFailed,
+        this, &Backend::inputDataDownloadFailed);
+
     qDebug() << "Downloaded!" << outputFile;
 
     emit this->dataStatus("Parsing data...");
@@ -86,13 +91,33 @@ void Backend::imagesDownloaded()
 {
     emit this->dataLoaded();
 
+    /// move downloaded data to cache
+
+    /// load cache
 }
 
 
 
 void Backend::inputDataDownloadFailed(QString details)
 {
-    qDebug() << "Download failed!" << details;
+    /// disconnect not used (oposite) connection
+    QObject::disconnect(
+        &m_networkDownloader, &NetworkDownlaoder::fileDownloaded,
+        this, &Backend::inputDataDownloaded);
+
+    qDebug() << "Download failed!";
+
     /// emit toast info
-    emit this->dataError(details);
+    emit this->showToast("Download failed!");
+
+    QString errorDetails = details;
+
+
+    /// chceck if cache exist
+    /// if not emit
+    emit this->dataError("No Data, please provide an internet connection");
+
+
+    /// load cache
+
 }

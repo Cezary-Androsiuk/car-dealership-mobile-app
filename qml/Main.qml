@@ -32,7 +32,11 @@ ApplicationWindow {
 
         function onDataError(details){
             mainLoader.setSource("DataErrorView.qml", { details: details })
-            toast.show("Download failed!")
+
+        }
+
+        function onShowToast(message){
+            toast.show(message)
         }
 
         function onDataStatus(message){
