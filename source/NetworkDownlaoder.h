@@ -28,7 +28,7 @@ signals:
     void fileDownloaded(QString outputFile);
     void fileDownloadingFailed(QString details);
 
-    void allFilesDownloaded();
+    void allFilesDownloadingEnded(int filesToDownload, int downloadedFiles);
 
 private:
     QNetworkAccessManager m_netAccessManager;
@@ -36,6 +36,8 @@ private:
     QMap<QNetworkRequest *, QString> m_requestsInQueue; /// [request, outputFile]
     QMap<QNetworkReply *, QString> m_repliesInProcess; /// [reply, outputFile]
 
+    int m_filesToDownload;
+    int m_downloadedFiles;
 };
 
 #endif // NETWORKDOWNLAODER_H

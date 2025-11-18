@@ -28,10 +28,13 @@ void NetworkDownlaoder::startDownloads()
 {
     qDebug() << "starting downloads...";
 
+    m_filesToDownload = m_requestsInQueue.size();
+    m_downloadedFiles = 0;
+
     if(m_requestsInQueue.empty())
     {
         qWarning() << "Nothing added to download!";
-        emit this->allFilesDownloaded();
+        emit this->allFilesDownloadingEnded(m_filesToDownload, m_downloadedFiles);
     }
 
     for(auto i=m_requestsInQueue.keyBegin(); i!=m_requestsInQueue.keyEnd(); ++i)
@@ -81,6 +84,8 @@ void NetworkDownlaoder::handleReply(QNetworkReply *reply)
         return;
     }
 
+    m_downloadedFiles ++;
+
     qDebug() << "file downloaded correctly:" << outputFile;
     emit this->fileDownloaded(outputFile);
 }
@@ -116,7 +121,7 @@ void NetworkDownlaoder::handleProgressCounterChanged()
 {
     if(m_repliesInProcess.isEmpty())
     {
-        emit this->allFilesDownloaded();
+        emit this->allFilesDownloadingEnded(m_filesToDownload, m_downloadedFiles);
     }
 }
 

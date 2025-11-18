@@ -60,6 +60,8 @@ QStringList DataParser::collectUrls(QString inputFilePath)
         DataParser::collectUrlsFromObject(jsonObj, collectedUrls);
     }
 
+    qDebug() << "collected urls: " << collectedUrls.size();
+
 
     return collectedUrls;
 }
@@ -130,9 +132,9 @@ bool DataParser::saveUrlFilesHashMap(const StrStrMap &map, QString filePath)
 void DataParser::collectUrlsFromObject(QJsonObject &jsonObject, QStringList &collectedUrls)
 {
     /// collect urls for each object
-    if(jsonObject.contains("obrazek"))
+    if(jsonObject.contains("thumbnail"))
     {
-        QString url = jsonObject["obrazek"].toString();
+        QString url = jsonObject["thumbnail"].toString();
         collectedUrls.append(url);
     }
 }

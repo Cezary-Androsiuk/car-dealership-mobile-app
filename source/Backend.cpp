@@ -75,7 +75,7 @@ void Backend::inputDataDownloaded(QString outputFile)
 
     /// start downloading images
     QObject::connect(
-        &m_networkDownloader, &NetworkDownlaoder::allFilesDownloaded,
+        &m_networkDownloader, &NetworkDownlaoder::allFilesDownloadingEnded,
         this, &Backend::imagesDownloaded, Qt::SingleShotConnection);
 
     for(auto i=urlsHashMap.keyBegin(); i!=urlsHashMap.keyEnd(); ++i)
@@ -85,6 +85,18 @@ void Backend::inputDataDownloaded(QString outputFile)
     }
     m_networkDownloader.startDownloads();
 
+}
+
+void Backend::onImagesDownloadedFinished(int filesToDownload, int downloadedFiles)
+{
+    if(filesToDownload == 0 || downloadedFiles > 0)
+    {
+        this->imagesDownloaded();
+    }
+    else
+    {
+        this->inputDataDownloadFailed();
+    }
 }
 
 void Backend::imagesDownloaded()
@@ -98,7 +110,7 @@ void Backend::imagesDownloaded()
 
 
 
-void Backend::inputDataDownloadFailed(QString details)
+void Backend::inputDataDownloadFailed()
 {
     /// disconnect not used (oposite) connection
     QObject::disconnect(
@@ -109,8 +121,6 @@ void Backend::inputDataDownloadFailed(QString details)
 
     /// emit toast info
     emit this->showToast("Download failed!");
-
-    QString errorDetails = details;
 
 
     /// chceck if cache exist
