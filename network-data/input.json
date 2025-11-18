@@ -1,59 +1,464 @@
 [
     {
-        "marka": "abc",
-        "model": "asdas",
-        "obrazek": "https://img.freepik.com/free-photo/person-near-alternative-energy-plant_23-2149192730.jpg",
-        "uszkodzenia": [
-            {
-                "maybe?": ""
-            }
-        ]
+        "id": 0,
+        "source": "https://www.otomoto.pl/osobowe/oferta/volkswagen-t-roc-ID6HHzHu.html",
+
+        "offerName": "Volkswagen T-Roc 1.5 TSI GPF ACT Premium DSG",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/0.webp",
+        "make": "Volkswagen",
+        "model": "T-Roc",
+        "version": "1.5 TSI GPF ACT Premium DSG",
+        "description": "<div class=\"ooa-unlmzs e1s9vvdy4\" style=\"margin-top: 0px; margin-bottom: 0px;\"><p>Witam. Sprzedaj\u0119 T-roca widocznego na zdj\u0119ciach. Auto bezwypadkowe, bezszkodowe, u\u017Cytkowane autostradowo przez jednego kierowc\u0119. Dost\u0119pny raport Dekra. Samoch\u00F3d serwisowany na bie\u017C\u0105co w ASO. Bez wk\u0142adu finansowego -w ostatnim czasie wymienione olej, filtry, klocki. Zawieszenie ciche i stabilne, uk\u0142ad kierowniczy bez uwag. Silnik, skrzynia suche, bez oznak nie prawid\u0142owego funkcjonowania. Mo\u017Cliwa wymiana rozrz\u0105du na miejscu - po ustaleniu warunk\u00F3w. Auto na ko\u0142ach 18\" z oponami zimowymi. Data rejestracji 10.09.2021. Wystawiam fv, kupuj\u0105cy zwolniony z op\u0142aty skarbowej. Zapraszam do rozmowy.<\/p><span data-testid=\"invisibleSpan\" class=\"ooa-1kxpgnj\">&nbsp;<\/span><\/div>",
+        "status": "Używany",
+        "year": 2021,
+        "price": 75900,
+        "negotiable": true,
+        "mileage": 176000,
+        "bodyType": "SUV",
+        "transmission": "Automatyczna",
+
+        "details": {
+            "engine": {
+                "fuelType": "Benzyna",
+                "horsepower": 150,
+                "engineCapacity": 1498
+            },
+            "comfortAndExtras": [
+                "Klimatyzacja automatyczna",
+                "Tapicerka materiałowa",
+                "Elektrycznie ustawiany fotel kierowcy",
+                "Elektrycznie ustawiany fotel pasażera",
+                "Podgrzewany fotel kierowcy",
+                "Podgrzewany fotel pasażera",
+                "Regul. elektr. podparcia lędźwiowego - kierowca",
+                "Regul. elektr. podparcia lędźwiowego - pasażer",
+                "Sportowe fotele - przód",
+                "Podłokietniki - przód",
+                "Podłokietniki - tył",
+                "Kierownica skórzana",
+                "Kierownica sportowa",
+                "Kierownica ze sterowaniem radia",
+                "Kierownica wielofunkcyjna",
+                "Zmiana biegów w kierownicy",
+                "Dźwignia zmiany biegów wykończona skórą",
+                "Cyfrowy kluczyk",
+                "Automatyczna kontrola ogrzewania",
+                "Czujnik deszczu",
+                "Elektryczne szyby przednie",
+                "Elektryczne szyby tylne",
+                "Wycieraczki"
+            ]
+        }
     },
     {
-        "marka": "abc",
-        "model": "asdas",
-        "obrazek": "https://img.freepik.com/free-photo/person-near-alternative-energy-plant_23-2149192708.jpg",
-        "10 cech": true
+        "id": 1,
+        "source": "https://www.otomoto.pl/osobowe/oferta/peugeot-5008-ID6HLtpg.html",
+
+        "offerName": "Peugeot 5008 1.6 BlueHDI Allure S&S EAT6",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/1.webp",
+        "make": "Peugeot",
+        "model": "5008",
+        "version": "1.6 BlueHDI Allure S&S EAT6",
+        "description": "<div class=\"ooa-unlmzs e1s9vvdy4\" style=\"margin-top: 0px; margin-bottom: 0px;\"><p>Witam<\/p><p><br><\/p><p>Mam do sprzedania bardzo \u0142adnego Peugeot 5008 7-mio osobowy z ekonomicznym silnikiem diesel 1.6 BlueHDI 120KM<\/p><p><br>100%bezwypadkowy, \u017Caden element nie by\u0142 powt\u00F3rnie lakierowany !!!<\/p><p><br><\/p><p>Wyra\u017Cam zgod\u0119 na sprawdzenie auta w ASO Peugeota lub przez Rzeczoznawc\u0119 itp.!!!<\/p><p><br><\/p><p>Wersja wyposa\u017Cenia:<\/p><p><br>nawigacja<\/p><p><br><\/p><p>el.tylna klapa<\/p><p><br><\/p><p>kamera cofania<\/p><p><br><\/p><p>asystent pasa ruchu<\/p><p><br><\/p><p>czujnik martwego pola<\/p><p><br><\/p><p>czujniki parkowania prz\u00F3d i ty\u0142<\/p><p><br>climatronic dwu strefowy<\/p><p><br>tempomat<\/p><p><br>4 x elektryczne szyby<\/p><p><br>elektryczne lusterka<\/p><p><br>elektryczne sk\u0142adane lusterka<\/p><p><br>wielofunkcyjna kierownica<\/p><p><br>7-mio osobowy<\/p><p><br>aluminiowe felgi 18<\/p><p><br>relingi dachowe<\/p><p><br><\/p><p><br>przebieg udokumentowany ksi\u0105\u017Ck\u0105 serwisow\u0105<\/p><p><br><\/p><p>zapraszam do ogl\u0105dania auta i na jazd\u0119 pr\u00F3bn\u0105<\/p><p><br><\/p><p>Serdecznie Zapraszam.<\/p><span data-testid=\"invisibleSpan\" class=\"ooa-1kxpgnj\">&nbsp;<\/span><\/div>",
+        "status": "Używany",
+        "year": 2017,
+        "price": 62900,
+        "negotiable": false,
+        "mileage": 180000,
+        "bodyType": "SUV",
+        "transmission": "Automatyczna",
+
+        "details": {
+            "engine": {
+                "fuelType": "Diesel",
+                "horsepower": 120,
+                "engineCapacity": 1560
+            },
+            "comfortAndExtras": [
+                "Hak",
+                "Klimatyzacja automatyczna, dwustrefowa",
+                "Rolety na bocznych szybach opuszczane ręcznie",
+                "Tapicerka częściowo skórzana",
+                "Klimatyzacja dla pasażerów z tyłu",
+                "Podłokietniki - przód",
+                "Podłokietniki - tył",
+                "Kierownica skórzana",
+                "Kierownica ze sterowaniem radia",
+                "Kierownica wielofunkcyjna",
+                "Zmiana biegów w kierownicy",
+                "Dźwignia zmiany biegów wykończona skórą",
+                "Keyless Go",
+                "Czujnik deszczu",
+                "Elektryczne szyby przednie",
+                "Elektryczne szyby tylne",
+                "Przyciemniane tylne szyby",
+                "Wycieraczki"
+            ]
+        }
     },
     {
-        "marka": "abc",
-        "model": "asdas",
-        "obrazek": "https://img.freepik.com/premium-photo/person-near-alternative-energy-plant_23-2149192755.jpg",
-        "10 cech": true
+        "id": 2,
+        "source": "https://www.otomoto.pl/osobowe/oferta/volkswagen-tiguan-allspace-ID6HLmd7.html",
+
+        "offerName": "Volkswagen Tiguan Allspace 2.0 TSI 4Mot Comfortline DSG",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/2.webp",
+        "make": "Volkswagen",
+        "model": "Tiguan Allspace",
+        "version": "2.0 TSI 4Mot Comfortline DSG",
+        "description": "<div class=\"ooa-unlmzs e1s9vvdy4\" style=\"margin-top: 0px; margin-bottom: 0px;\"><p>Volkswagen Tiguan Allspace<\/p><p><br><\/p><p>Rok 2018<\/p><p><br><\/p><p>2litry benzyna<\/p><p><br><\/p><p>SuV nap\u0119d 4 na 4<\/p><p><br><\/p><p>Przebieg auta 91 ty\u015B.<\/p><p><br><\/p><p>Czarny metalik<\/p><p><br><\/p><p>*Automatyczna skrzynia bieg\u00F3w<\/p><p><br><\/p><p>*Klimatyzacja automatyczna 3 strefowa<\/p><p><br><\/p><p>*Tapicerka i wn\u0119trze sk\u00F3ra<\/p><p><br><\/p><p>*Kierownica sk\u00F3rzana wielofunkcyjna multimedialna<\/p><p><br><\/p><p>*Pod\u0142okietniki prz\u00F3d i ty\u0142<\/p><p><br><\/p><p>*Fotele przednie z funkcj\u0105 regulacji, podgrzewane<\/p><p><br><\/p><p>*Komputer pok\u0142adowy<\/p><p><br><\/p><p>*Z\u0142\u0105cze USB<\/p><p><br><\/p><p>*Wy\u015Bwietlacz dotykowy<\/p><p><br><\/p><p>*Dach panoramiczny z szyberdachem pod\u015Bwietlany o\u015Bwietleniem LED<\/p><p><br><\/p><p>*Lusterka boczne zewn\u0119trzne podgrzewane i regulowane elektrycznie<\/p><p><br><\/p><p>*Szyby przednie i tylne elektryczne<\/p><p><br><\/p><p>*Szyby tylne przyciemniane<\/p><p><br><\/p><p>*Tempomat ACC z systemem Front Assist<\/p><p><br><\/p><p>*ABS<\/p><p><br><\/p><p>*Asystent hamowania<\/p><p><br><\/p><p>*Asystent zmiany pasa ruchu<\/p><p><br><\/p><p>*Kontrola trakcji<\/p><p><br><\/p><p>*Kontrola odleg\u0142o\u015Bci przy parkowaniu<\/p><p><br><\/p><p>*Czujnik deszczu<\/p><p><br><\/p><p>*Czujnik zmierzchu<\/p><p><br><\/p><p>*Hamulec postojowy elektryczny<\/p><p><br><\/p><p>*Kurtyny powietrzne boczne, przednie<\/p><p><br><\/p><p>*Lampy w technologi LED<\/p><p><br><\/p><p>*Reflektory halogenowe z funkcj\u0105 do\u015Bwietlaj\u0105c\u0105 zakr\u0119t<\/p><p><br><\/p><p>*Sygnalizacja spadku ci\u015Bnienia w oponach<\/p><p><br><\/p><p>*Kamera cofania<\/p><p><br><\/p><p>*System Start\/Stop<\/p><p><br><\/p><p>*Keyless entry<\/p><p><br><\/p><p>*System wyboru profilu jazdy<\/p><p><br><\/p><p>*Zamek centralny<\/p><p><br><\/p><p>Wykonany serwis olejowy<\/p><p><br><\/p><p>DODATKOWO posiada zabezpieczenie przeciw kradzie\u017Cowe<\/p><span data-testid=\"invisibleSpan\" class=\"ooa-1kxpgnj\">&nbsp;<\/span><\/div>",
+        "status": "Używany",
+        "year": 2018,
+        "price": 70000,
+        "negotiable": false,
+        "mileage": 91000,
+        "bodyType": "SUV",
+        "transmission": "Automatyczna",
+
+        "details": {
+            "engine": {
+                "fuelType": "Benzyna",
+                "horsepower": 180,
+                "engineCapacity": 1984
+            },
+            "comfortAndExtras": [
+                "Klimatyzacja automatyczna: 3 strefowa",
+                "Tapicerka skórzana",
+                "Elektrycznie ustawiany fotel kierowcy",
+                "Elektrycznie ustawiany fotel pasażera",
+                "Podgrzewany fotel kierowcy",
+                "Podgrzewany fotel pasażera",
+                "Podłokietniki - przód",
+                "Podłokietniki - tył",
+                "Kierownica skórzana",
+                "Kierownica wielofunkcyjna",
+                "Dźwignia zmiany biegów wykończona skórą",
+                "Uruchamianie silnika bez użycia kluczyków",
+                "Czujnik deszczu",
+                "Podgrzewana przednia szyba",
+                "Elektryczne szyby tylne",
+                "Przyciemniane tylne szyby",
+                "Wycieraczki",
+                "Dach otwierany elektrycznie"
+            ]
+        }
     },
     {
-        "marka": "abc",
-        "model": "asdas",
-        "10 cech": true
+        "id": 3,
+        "source": "https://www.otomoto.pl/osobowe/oferta/land-rover-range-rover-sport-ID6HLBej.html",
+
+        "offerName": "Land Rover Range Rover Sport Supercharged HSE Dynamic",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/3.webp",
+        "make": "Land Rover",
+        "model": "Range Rover Sport",
+        "version": "Supercharged HSE Dynamic",
+        "description": "<div class=\"ooa-unlmzs e1s9vvdy4\" style=\"margin-top: 0px; margin-bottom: 0px;\"><p>Witam<\/p><p><br><\/p><p>Do sprzedania posiadam Range Rover sport nap\u0119dzany silnikiem 5.0 V8 i 8-stpowniow\u0105 automatyczn\u0105 skrzynia bieg\u00F3w .<\/p><p><br><\/p><p>Auto sprowadzone do kraju w 2024r, zarejestrowane w Polsce.<\/p><p><br><\/p><p>Auto w pe\u0142ni sprawne technicznie, silnik odpala oraz pracuje bez zarzutu oraz rozwija pe\u0142n\u0105 moc.<\/p><p><br><\/p><p>Skrzynia bieg\u00F3w oraz nap\u0119dy nie wykazuj\u0105 \u017Cadnych oznak zu\u017Cycia.<\/p><p><br><\/p><p>Wizualnie samoch\u00F3d prezentuje si\u0119 \u015Bwietnie jednak wymaga drobnych poprawek lakierniczych.<\/p><p><br><\/p><p>Na ca\u0142ym aucie warstwa lakieru oryginalna jak r\u00F3wnie\u017C wszystkie szyby s\u0105 oryginalne.<\/p><p><br><\/p><p><br><\/p><p>Wyposa\u017Cenie:<\/p><p><br><\/p><p>Szklany otwierany dach<\/p><p><br><\/p><p>Klimatyzacja Automatyczna dwie strefy<\/p><p><br><\/p><p>Fotele Sk\u00F3rzane Wentylowane oraz grzane<\/p><p><br><\/p><p>Kanapa ty\u0142 grzana<\/p><p><br><\/p><p>Kierownica podgrzewana<\/p><p><br><\/p><p>Drzwi doci\u0105gne elektrycznie<\/p><p><br><\/p><p>Elektryczna klapa ty\u0142<\/p><p><br><\/p><p>System Keyless go<\/p><p><br><\/p><p>Ustawiane tryby jazdy (Szosa, teren, sport ITP).<\/p><p><br><\/p><p>Lod\u00F3wka w pod\u0142okietniku<\/p><p><br><\/p><p>Czujniki parkowania oraz kamery<\/p><p><br><\/p><p>System nag\u0142o\u015Bnienia Meridan<\/p><p><br><\/p><p>Asystent Parkowania (auto samo zaparkuje w ka\u017Cdej pozycji)<\/p><p><br><\/p><p>Asystent Pasa ruchu<\/p><p><br><\/p><p>Asystent Martwego pola<\/p><p><br><\/p><p>Asystent zjazdu z g\u00F3ry<\/p><p><br><\/p><p>Pneumatyczne zawieszenie<\/p><p><br><\/p><p>Bluetooth<\/p><p><br><\/p><p>I napewno wiele rzeczy kt\u00F3rych zapomnia\u0142em napisa\u0107:)<\/p><p><br><\/p><p>Na auto wystawiam Faktur\u0119 Vat-mar\u017Ce wiec kupuj\u0105cy nie p\u0142aci podatku Pcc.<\/p><p><br><\/p><p>Istnieje r\u00F3wnie\u017C mo\u017Cliwo\u015B\u0107 zamiany na inne Ta\u0144sze, z dop\u0142at\u0105 dla mnie.<\/p><p><br><\/p><p>Cena za got\u00F3wk\u0119 109999 OSTATECZNA, Przy zamianie 120000z\u0142.<\/p><span data-testid=\"invisibleSpan\" class=\"ooa-1kxpgnj\">&nbsp;<\/span><\/div>",
+        "status": "Używany",
+        "year": 2015,
+        "price": 110000,
+        "negotiable": false,
+        "mileage": 130000,
+        "bodyType": "SUV",
+        "transmission": "Automatyczna",
+
+        "details": {
+            "engine": {
+                "fuelType": "Benzyna",
+                "horsepower": 510,
+                "engineCapacity": 5000
+            },
+            "comfortAndExtras": [
+                "Klimatyzacja automatyczna",
+                "Tapicerka skórzana",
+                "Elektrycznie ustawiany fotel kierowcy",
+                "Elektrycznie ustawiany fotel pasażera",
+                "Regul. elektr. podparcia lędźwiowego - kierowca",
+                "Regul. elektr. podparcia lędźwiowego - pasażer",
+                "Podłokietniki - przód",
+                "Kierownica skórzana",
+                "Kolumna kierownicy regulowana elektrycznie",
+                "Kierownica wielofunkcyjna",
+                "Zmiana biegów w kierownicy",
+                "Czujnik deszczu",
+                "Podgrzewana przednia szyba",
+                "Elektryczne szyby przednie",
+                "Elektryczne szyby tylne"
+            ]
+        }
     },
     {
-        "marka": "abc",
-        "model": "asdas",
-        "10 cech": true
+        "id": 4,
+        "source": "https://www.otomoto.pl/osobowe/oferta/skoda-karoq-ID6HIdyn.html",
+
+        "offerName": "Skoda Karoq 1.5 TSI ACT Sportline DSG",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/4.webp",
+        "make": "Skoda",
+        "model": "Karoq",
+        "version": "1.5 TSI ACT Sportline DSG",
+        "description": "",
+        "status": "Nowy",
+        "year": 2025,
+        "price": 149300,
+        "negotiable": false,
+        "mileage": 7,
+        "bodyType": "Kompakt",
+        "transmission": "Automatyczna",
+
+        "details": {
+            "engine": {
+                "fuelType": "Benzyna",
+                "horsepower": 150,
+                "engineCapacity": 1498
+            },
+            "comfortAndExtras": [
+                "Klimatyzacja automatyczna, dwustrefowa",
+                "Tapicerka materiałowa",
+                "Podgrzewany fotel kierowcy",
+                "Podgrzewany fotel pasażera",
+                "Podłokietniki - przód",
+                "Podłokietniki - tył",
+                "Kierownica skórzana",
+                "Kierownica wielofunkcyjna",
+                "Kierownica ogrzewana",
+                "Uruchamianie silnika bez użycia kluczyków",
+                "Czujnik deszczu",
+                "Elektryczne szyby przednie",
+                "Elektryczne szyby tylne",
+                "Przyciemniane tylne szyby"
+            ]
+        }
     },
     {
-        "marka": "abc",
-        "model": "asdas",
-        "10 cech": true
+        "id": 5,
+        "source": "https://www.otomoto.pl/osobowe/oferta/cupra-terramar-ID6HEWbk.html",
+
+        "offerName": "Cupra Terramar 2.0 TSI 4Drive Advantage Edition DSG",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/5.webp",
+        "make": "Cupra",
+        "model": "Terramar",
+        "version": "2.0 TSI 4Drive Advantage Edition DSG",
+        "description": "<div class=\"ooa-unlmzs e1s9vvdy4\" style=\"margin-top: 0px; margin-bottom: 0px;\"><b>\r\nWITAJ W \u015AWIECIE CUPRY!<\/b>\r\n<b>\r\n<\/b>Autoryzowany Dealer <b>CUPRA Plichta Gda\u0144sk Stadion<\/b> ma przyjemno\u015B\u0107 zaprezentowa\u0107 samoch\u00F3d dost\u0119pny <b>od r\u0119ki<\/b>:\r\n<b>\r\nCUPRA Terramar 2.0 TSI 204KM DSG 4Drive<\/b>\r\n<b>\r\nWersja: <\/b>Advantage Edition<b>\r\nRok produkcji:<\/b> 2025\r\n<b>Skrzynia bieg\u00F3w:<\/b> Automatyczna, 7-biegowa DSG\r\n<b>Kolor nadwozia:<\/b> Glacial White (metalizowany)\r\n<b>Felgi: <\/b>20-calowe aluminiowe czarno-srebrne HADRON\r\n<b>Wn\u0119trze:<\/b> Tapicerka Dinamica Moon Light + sk\u00F3ra ekologiczna, fotele przednie z elektryczn\u0105 regulacj\u0105, podgrzewane, fotel kierowcy z pami\u0119ci\u0105 ustawie\u0144\r\n\r\n\r\n<b>ID og\u0142oszenia:<\/b> 154716\r\n\r\n\r\nCena katalogowa<b>:<\/b> 220 175 PLN\r\nNajni\u017Csza cena z ostatnich 30 dni: 196 900 PLN\r\nCena promocyjna: 196 900 PLN <b>(Oferta nie \u0142\u0105czy si\u0119 z promocyjnym finansowaniem VWFS)<\/b>\r\n<b>\r\n\r\n<\/b><b>\u260E Zapraszam do kontaktu - <\/b>Szymon Szor<b>\r\nTelefon: <\/b><button class=\"ooa-j3iomg ey4zecb0\">Wy\u015Bwietl numer<\/button>\r\n\r\n\r\n<b>WERSJA ADVANTAGE EDITION ZAWIERA:\r\n\r\nPakiet EDGE<\/b>\r\n<ul><li>Elektrycznie i bezdotykowo otwierane drzwi baga\u017Cnika<\/li><li>System bezkluczykowego dost\u0119pu i uruchamiania samochodu KESSY<\/li><li>Automatyczna klimatyzacja trzystrefowa Climatronic z panelem sterowania z ty\u0142u<\/li><li>Przyciemniane tylne szyby<\/li><li>Pod\u015Bwietlane nak\u0142adki progowe w przednich drzwiach w technologii LED<\/li><li>Elektrycznie regulowane, podgrzewane i sk\u0142adane lusterka boczne<\/li><li>Sportowa, podgrzewana kierownica wielofunkcyjna obszyta sk\u00F3r\u0105<\/li><li>Aktywny tempomat (ACC)<\/li><li>Sk\u0142adane i dzielone oparcie tylnej kanapy z pod\u0142okietnikiem<\/li><li>Alarm z funkcj\u0105 dozoru wn\u0119trza<\/li><li>Ambientowe o\u015Bwietlenie wn\u0119trza<\/li><\/ul>\r\n<b>Pakiet MOON LIGHT<\/b>\r\n<ul><li>Tapicerka DINAMICA<\/li><li>Fotele z przodu z elektryczn\u0105 z regulacj\u0105 podparcia odcinka l\u0119d\u017Awiowego<\/li><li>Ambientowe o\u015Bwietlenie wn\u0119trza<\/li><li>Podgrzewane fotele z przodu z elektryczn\u0105 z regulacj\u0105 i funkcj\u0105 zapami\u0119tywania ustawie\u0144<\/li><li>Elektrycznie regulowane, podgrzewane i sk\u0142adane lusterka boczne z funkcj\u0105 pami\u0119ci<\/li><\/ul>\r\n<b>Pakiet PURE PERFORMANCE<\/b>\r\n<ul><li>Przednie \u015Bwiat\u0142a Matrix LED z funkcj\u0105 automatycznej regulacji zasi\u0119gu<\/li><li>Zawieszenie adaptacyjne DCC z mo\u017Cliwo\u015Bci\u0105 regulacji sztywno\u015Bci<\/li><\/ul>\r\n<b>20-calowe aluminiowe czarno-srebrne HADRON\r\n\r\n\r\nWYPOSA\u017BENIE OPCJONALNE PREZENTOWANEGO EGZEMPLARZA:\r\n\r\nPakiet IMMERSIVE:<\/b>\r\n<ul><li>SennheiserTM: System audio klasy premium z 11. g\u0142o\u015Bnikami, subwooferem, wzmacniaczem i technologi\u0105 Surround<\/li><\/ul><b>\r\n\r\n\u260E Zapraszam do kontaktu - <\/b>Szymon Szor<b>\r\nTelefon: <\/b><button class=\"ooa-j3iomg ey4zecb0\">Wy\u015Bwietl numer<\/button><b>\r\n\r\n<\/b>\r\n<b>WYPOSA\u017BENIE STANDARDOWE:<\/b>\r\n<ul><li>Awaryjne wspomaganie kierowaniem i asystent skr\u0119tu<\/li><li>\u015Aruby k\u00F3\u0142 z zabezpieczeniem antykradzie\u017Cowym<\/li><li>Dezaktywacja poduszki powietrznej pasa\u017Cera<\/li><li>5 lat gwarancji CUPRA<\/li><li>Full Link<\/li><li>Hamulce tarczowe z przodu<\/li><li>Gniazdo 12V z przodu i 230V w baga\u017Cniku<\/li><li>Relingi dachowe w kolorze l\u015Bni\u0105cej czerni<\/li><li>Czujniki parkowania z przodu i z ty\u0142u<\/li><li>2 gniazda USB typu C z przodu i 2 typu C z ty\u0142u<\/li><li>Metalowe nak\u0142adki na peda\u0142y<\/li><li>Elektromechaniczny hamulec postojowy<\/li><li>Czarna podsufitka<\/li><li>Automatycznie \u015Bciemniaj\u0105ce si\u0119 lusterko wsteczne<\/li><li>Kamera cofania<\/li><li>Dwupoziomowa pod\u0142oga baga\u017Cnika<\/li><li>Progresywne wspomaganie uk\u0142adu kierowniczego<\/li><li>Ogranicznik pr\u0119dko\u015Bci<\/li><li>8 g\u0142o\u015Bnik\u00F3w<\/li><li>System rozpoznawania zm\u0119czenia<\/li><li>CUPRA CONNECT (subskrypcja na 10 lat)<\/li><li>System kontroli ci\u015Bnienia powietrza w oponach<\/li><li>Zestaw naprawczy<\/li><li>Podgrzewane przednie fotele<\/li><li>Funkcja rozpoznawania mowy i sterowania g\u0142osem<\/li><li>Asystent utrzymania pasa ruchu Lane Assist<\/li><li>Czujnik deszczu<\/li><li>O\u015Bwietlenie powitalne LED w lusterkach bocznych<\/li><li>Fotele przednie, sportowe<\/li><li>Dywaniki welurowe z przodu i z ty\u0142u<\/li><li>System komunikacji mi\u0119dzy pojazdami i infrastruktur\u0105 drogow\u0105 \"Car2x\"<\/li><li>Elektrycznie sterowane szyby boczne z przodu i z ty\u0142u<\/li><li>System rozpoznawania znak\u00F3w drogowych Traffic Sign Recognition<\/li><li>Pod\u0142okietnik z przodu z regulacj\u0105 wzd\u0142u\u017Cn\u0105 oraz zintegrowanym schowkiem<\/li><li>Wirtualny kokpit: cyfrowa tablica przyrz\u0105d\u00F3w z kolorowym ekranem TFT 10,25\u201D<\/li><li>Przednie \u015Bwiat\u0142a przeciwmgielne LED z funkcj\u0105 do\u015Bwietlania zakr\u0119t\u00F3w<\/li><li>Media System Plus: 12.9-calowy kolorowy ekran dotykowy<\/li><li>7 poduszek powietrznych (2 przednie, 2 boczne, 2 kurtyny powietrzne, poduszka centralna)<\/li><li>Os\u0142ony przeciws\u0142oneczne kierowcy i pasa\u017Cera z zamykanymi i pod\u015Bwietlanymi lusterkami<\/li><li>DAB (Digital Audio Broadcasting) - funkcja odbioru program\u00F3w radiowych w formie cyfrowej<\/li><li>Schowek z funkcj\u0105 bezprzewodowego \u0142adowania telefonu<\/li><li>Zaczepy i-Size na zewn\u0119trznych miejscach tylnej kanapy oraz zaczep Top Tether na fotelu pasa\u017Cera<\/li><li>System kontroli odst\u0119pu Front Assist z funkcj\u0105 awaryjnego hamowania i funkcj\u0105 ochrony pieszych i rowerzyst\u00F3w<\/li><li>\u015Awiat\u0142a do jazdy dziennej LED z automatyczn\u0105 funkcj\u0105 op\u00F3\u017Anionego wy\u0142\u0105czania \u015Bwiate\u0142 Coming and Leaving Home<\/li><\/ul><b>\r\n\r\n<\/b>Tre\u015B\u0107 og\u0142oszenia, zgodnie z art. 66 \u00A71 Kodeksu Cywilnego, nie stanowi oferty handlowej w rozumieniu prawa, a jedynie informacj\u0119. Sprzedaj\u0105cy zastrzega, \u017Ce mo\u017Ce zawiera\u0107 b\u0142\u0119dy lub nie by\u0107 aktualna.<span data-testid=\"invisibleSpan\" class=\"ooa-1kxpgnj\">&nbsp;<\/span><\/div>",
+        "status": "Nowy",
+        "year": 2025,
+        "price": 196900,
+        "negotiable": false,
+        "mileage": 5,
+        "bodyType": "Kombi",
+        "transmission": "Automatyczna",
+
+        "details": {
+            "engine": {
+                "fuelType": "Benzyna",
+                "horsepower": 204,
+                "engineCapacity": 1984
+            },
+            "comfortAndExtras": [
+                "Klimatyzacja automatyczna: 3 strefowa",
+                "Tapicerka częściowo skórzana",
+                "Klimatyzacja dla pasażerów z tyłu",
+                "Elektrycznie ustawiany fotel kierowcy",
+                "Elektrycznie ustawiany fotel pasażera",
+                "Podgrzewany fotel kierowcy",
+                "Podgrzewany fotel pasażera",
+                "Regul. elektr. podparcia lędźwiowego - kierowca",
+                "Regul. elektr. podparcia lędźwiowego - pasażer",
+                "Sportowe fotele - przód",
+                "Podłokietniki - przód",
+                "Podłokietniki - tył",
+                "Kierownica skórzana",
+                "Kierownica sportowa",
+                "Kierownica ze sterowaniem radia",
+                "Kierownica ogrzewana",
+                "Zmiana biegów w kierownicy",
+                "Cyfrowy kluczyk",
+                "Keyless entry",
+                "Keyless Go",
+                "Uruchamianie silnika bez użycia kluczyków",
+                "Ogrzewanie postojowe",
+                "Czujnik deszczu",
+                "Elektryczne szyby przednie",
+                "Elektryczne szyby tylne",
+                "Przyciemniane tylne szyby"
+            ]
+        }
     },
     {
-        "marka": "abc",
-        "model": "asdas",
-        "10 cech": true
+        "id": 6,
+        "source": "https://www.otomoto.pl/osobowe/oferta/cupra-cupra-formentor-ID6HAxYZ.html",
+
+        "offerName": "Cupra Formentor 1.5 eTSI mHEV DSG",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/6.webp",
+        "make": "Cupra",
+        "model": "Formentor",
+        "version": "1.5 eTSI mHEV DSG",
+        "description": "<div class=\"ooa-unlmzs e1s9vvdy4\" style=\"margin-top: 0px; margin-bottom: 0px;\">Autoryzowany <b>Dealer CUPRA Plichta<\/b><b> Gdynia<\/b> prezentuje samoch\u00F3d dost\u0119pny od r\u0119ki.\r\nOferujemy auta z pe\u0142n\u0105 gwarancj\u0105 producenta, atrakcyjnymi formami finansowania i mo\u017Cliwo\u015Bci\u0105 \r\npozostawienia obecnego samochodu w rozliczeniu.\r\n\r\nModel: Cupra Formentor 1.5 eTSI 150 KM \r\nWersja wyposa\u017Cenia: Formentor \r\nSilnik: 1.5 eTSI 150 KM \r\nSkrzynia bieg\u00F3w: Automatyczna 7-biegowa DSG\r\n Kolor: Morski (0E0E - Midnight Black) \r\nWn\u0119trze: AQ - Tapicerka materia\u0142owa RIDER\r\nRok produkcji: 2025\r\nRok modelowy: 2025\r\nCena promocyjna pojazdu: 154 900 z\u0142 brutto\r\nCena katlogowa pojazdu: 166 900 z\u0142 brutto\r\nNajni\u017Csza cena pojazdu z ostatnich 30 dni: 166 900 z\u0142 brutto\r\n\r\n<b>RABAT 12000 z\u0142<\/b> - Promocyjne Finansowanie Volkswagen Financial Services - 154 900 z\u0142 brutto\r\n\r\n\r\nNumer (ID) oferty: 154748\r\n\r\n\r\n<b>Wyposa\u017Cenie dodatkowe:<\/b>\r\n\r\n\u2022 Pakiet EDGE\r\n\/ Elektrycznie i bezdotykowo otwierane drzwi baga\u017Cnika\r\n\/ System bezkluczykowego dost\u0119pu i uruchamiania samochodu KESSY\r\n\/ Alarm z funkcj\u0105 dozoru wn\u0119trza\r\n\/ Ambientowe o\u015Bwietlenie kokpitu LED z mo\u017Cliwo\u015Bci\u0105 wyboru koloru\r\n\/ Kamera cofania\r\n\r\n\u2022 18-calowe felgi aluminiowe TEMPEST\r\n\r\n\u2022 Preinstalacja do monta\u017Cu haka holowniczego\r\n\r\nGwarancja uruchomiona 30.09.2025 r.\r\n\r\n\r\nKa\u017Cda <b>CUPRA obj\u0119ta jest 5-letni\u0105 gwarancj\u0105<\/b> z limitem 150 000 km (pierwsze 2 lata bez limitu kilometr\u00F3w).\r\n \r\nJestem do Twojej dyspozycji:\r\n<b>Lech Pallach \u2013 CUPRA Master \/ Doradca handlowy\r\n<\/b>\u260E <button class=\"ooa-j3iomg ey4zecb0\">Wy\u015Bwietl numer<\/button>\r\n<b>(at)<\/b> l.pallach(at)plichta.com.pl\r\n\r\nSalon CUPRA Plichta Gdynia \u2013 ul. Morska 318 (tu\u017C przy obwodnicy Tr\u00F3jmiasta)\r\n\r\n<b>Bezpieczne zakupy online \u2013 obs\u0142ugujemy klient\u00F3w z ca\u0142ej Polski!\r\n<\/b>- Odbi\u00F3r z dworca lub lotniska\r\n- Promocyjne finansowanie Volkswagen Financial Services (zdalna obs\u0142uga formalno\u015Bci)\r\n- Atrakcyjne pakiety ubezpiecze\u0144\r\n- Mo\u017Cliwo\u015B\u0107 pozostawienia auta w rozliczeniu (wst\u0119pna wycena online)\r\n- Dostawa samochodu pod wskazany adres\r\n- Prezentacja auta przez wideorozmow\u0119\r\n\r\nZdj\u0119cia maj\u0105 charakter pogl\u0105dowy. Niniejsze og\u0142oszenie nie stanowi oferty w rozumieniu art. 66 Kodeksu Cywilnego.<span data-testid=\"invisibleSpan\" class=\"ooa-1kxpgnj\">&nbsp;<\/span><\/div>",
+        "status": "Nowy",
+        "year": 2025,
+        "price": 154900,
+        "negotiable": false,
+        "mileage": 8,
+        "bodyType": "SUV",
+        "transmission": "Automatyczna",
+
+        "details": {
+            "engine": {
+                "fuelType": "Hybryda",
+                "horsepower": 150,
+                "engineCapacity": 1498
+            },
+            "comfortAndExtras": [
+                "Klimatyzacja automatyczna",
+                "Tapicerka skórzana",
+                "Czujnik deszczu",
+                "Przyciemniane tylne szyby"
+            ]
+        }
     },
     {
-        "marka": "abc",
-        "model": "asdas",
-        "10 cech": true
+        "id": 7,
+        "source": "https://www.otomoto.pl/osobowe/oferta/volkswagen-arteon-ID6HATpN.html",
+
+        "offerName": "Volkswagen Arteon 2.0 TSI GPF R-Line DSG",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/7.webp",
+        "make": "Volkswagen",
+        "model": "Arteon",
+        "version": "2.0 TSI GPF R-Line DSG",
+        "description": "<div class=\"ooa-unlmzs e1s9vvdy4\" style=\"margin-top: 0px; margin-bottom: 0px;\"><p>Krotki Film YT prezentuj\u0105cy autko.<\/p><p>Volkswagen Arteon RLine 2019r. Salon Polska 2.0 benzyna 190 Koni przebieg: 90.600km naped przedni.<\/p><p>***Ogloszenie, skierowane do osob ktore poszukuja pojazdu z polskiego salonu z udokumentowana historia. Pojazd nigdy nieuczestniczyl w \u017Cadnej kolizji oraz wypadku drogowym. Ca\u0142y w org. Gwarantuje, ze 1 osoba wyjedzie zadowolona nowym nabytkiem***<\/p><p>Swiezo nalozona powloka kwarcowa.<\/p><p>Pelna specyfikacja dostepna na mejla a wniej:<\/p><p>Full Led lampy Pakiet R Line wewnetrzny oraz zewnetrzny<\/p><p>Dynamiczne kierunkowskazy<\/p><p>Kamera 360'<\/p><p>Wzmocnione Naglosnienie DyNaudio<\/p><p>Czarna podsufitka<\/p><p>Komfortowe ,polelektryczne, podgrzewane siedzenia<\/p><p>Hak elektr.<\/p><p>Asystent pasa ruchu<\/p><p>Elektr. Ustawiane I sk\u0142adane lusterka<\/p><p>Oswietlenie ambiente<\/p><p>Keyless go<\/p><p>Podgrzewana przednia szyba<\/p><p>Navigacja<\/p><p>Wirtual kokpit<\/p><p>Dotykowy duzy wyswietlacz multimedialny<\/p><p>Czujniki przod + tyl z wizualizacja<\/p><p>Nowe poliftowe menu<\/p><p>Czujnik zmierzchu, deszczu<\/p><p>2x.kpl. opon (do uzg.)<\/p><p>Oraz wiele innych...<\/p><p>Sprzedaz: fv vat marza (kupujacy zwolniony z PCC3. Mozliwosc kredytu\/leasingu.<\/p><p>Pojazd dostepny od pon do nd w godzinach 7-22. Udost\u0119pniam miernik lakieru, podnosnik, detailing samochodowy z osw. Led.<\/p><p>Tomasz<\/p><span data-testid=\"invisibleSpan\" class=\"ooa-1kxpgnj\">&nbsp;<\/span><\/div>",
+        "status": "Używany",
+        "year": 2019,
+        "price": 102900,
+        "negotiable": true,
+        "mileage": 90600,
+        "bodyType": "Kompakt",
+        "transmission": "Automatyczna",
+
+        "details": {
+            "engine": {
+                "fuelType": "Benzyna",
+                "horsepower": 190,
+                "engineCapacity": 1984
+            },
+            "comfortAndExtras": [
+                "Klimatyzacja automatyczna: 3 strefowa",
+                "Tapicerka skórzana",
+                "Elektrycznie ustawiany fotel kierowcy",
+                "Elektrycznie ustawiany fotel pasażera",
+                "Podgrzewany fotel kierowcy",
+                "Podgrzewany fotel pasażera",
+                "Regul. elektr. podparcia lędźwiowego - kierowca",
+                "Regul. elektr. podparcia lędźwiowego - pasażer",
+                "Sportowe fotele - przód",
+                "Podłokietniki - przód",
+                "Kierownica skórzana",
+                "Kierownica sportowa",
+                "Kierownica ze sterowaniem radia",
+                "Kierownica wielofunkcyjna",
+                "Zmiana biegów w kierownicy",
+                "Keyless Go",
+                "Uruchamianie silnika bez użycia kluczyków",
+                "Czujnik deszczu",
+                "Elektryczne szyby przednie",
+                "Elektryczne szyby tylne",
+                "Wycieraczki"
+            ]
+        }
     },
     {
-        "marka": "abc",
-        "model": "asdas",
-        "10 cech": true
+        "id": 8,
+        "source": "https://www.otomoto.pl/osobowe/oferta/mazda-cx-5-ID6HLHj3.html",
+
+        "offerName": "Mazda CX-5 2.0 Skymotion",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/8.webp",
+        "make": "Mazda",
+        "model": "CX-5",
+        "version": "2.0 Skymotion",
+        "description": "<div class=\"ooa-unlmzs e1s9vvdy4\" style=\"margin-top: 0px; margin-bottom: 0px;\"><p><b>Witam wszystkich zainteresowanych!<\/b><\/p><p><br><\/p><p>Mazda CX-5 AWD<\/p><p><br><\/p><p>Rok produkcji: 2013<\/p><p>Data rej: 12 czerwca 2013<\/p><p>Silnik: 2.0 benzyna 160KM, nap\u0119d 4x4<br>Przebieg: 144811 km<\/p><p><br>Samoch\u00F3d z polskiego salonu, serwisowany w ASO do maja 2018 (79545 km), nast\u0119pnie w niezale\u017Cnych warsztatach - wymiana oleju raz w roku\/max 10-11 tys.km. <br>Wykonano konserwacj\u0119 podwozia w profesjonalnej firmie - stan do dzisiaj bez zarzutu.<br>Mazda bez przyg\u00F3d\/wypadk\u00F3w - lakierowana pokrywa silnika z powod\u00F3w estetycznych kilka lat temu. <br>Na lakierze normalne \u015Blady zu\u017Cycia, wn\u0119trze zachowane bardzo dobrze jak na 12-letni w\u00F3z.<br>Zawieszenie, hamulce, klimatyzacja, praca silnika, nap\u0119d\u00F3w i skrzyni bez zarzutu. Bez wyciek\u00F3w i zapoce\u0144 silnika\/skrzyni czy nap\u0119d\u00F3w - podwozie suche!<br><br><b>Najwa\u017Cniejsze elementy wyposa\u017Cenia:<\/b><br>- reflektory xenonowe + spryskiwacze<br>- podgrzewane fotele przednie<br>- czujniki parkowania prz\u00F3d\/ty\u0142 <br>- fabryczna nawigacja<\/p><p>- alufelgi 17cali<br>- asystent pasa ruchu<\/p><p>- system RVM (martwe pole)<\/p><p>- klimatyzacja automatyczna dwustrefowa<br>- i inne...<br><br>Sprzeda\u017C na podstawie faktury VAT-mar\u017Ca. Kupuj\u0105cy zwolniony z podatku PCC-2%.<br>Lokalizacja: Chybie (woj. \u015Bl\u0105skie).<\/p><p><br>Pozdrawiam i zapraszam!<\/p><span data-testid=\"invisibleSpan\" class=\"ooa-1kxpgnj\">&nbsp;<\/span><\/div>",
+        "status": "Używany",
+        "year": 2013,
+        "price": 51900,
+        "negotiable": false,
+        "mileage": 144811,
+        "bodyType": "SUV",
+        "transmission": "Manualna",
+
+        "details": {
+            "engine": {
+                "fuelType": "Benzyna",
+                "horsepower": 160,
+                "engineCapacity": 1998
+            },
+            "comfortAndExtras": [
+                "Klimatyzacja automatyczna",
+                "Tapicerka materiałowa",
+                "Podgrzewany fotel kierowcy",
+                "Podgrzewany fotel pasażera",
+                "Podłokietniki - tył",
+                "Kierownica skórzana",
+                "Kierownica wielofunkcyjna",
+                "Dźwignia zmiany biegów wykończona skórą",
+                "Czujnik deszczu",
+                "Elektryczne szyby przednie",
+                "Elektryczne szyby tylne",
+                "Przyciemniane tylne szyby"
+            ]
+        }
     },
     {
-        "marka": "abc",
-        "model": "asdas",
-        "10 cech": true
+        "id": 9,
+        "source": "https://www.otomoto.pl/osobowe/oferta/citroen-ds-ID6Gw3IH.html",
+
+        "offerName": "Citroën DS",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/9.webp",
+        "make": "Citroën",
+        "model": "DS",
+        "version": "Błękitny",
+        "description": "<div class=\"ooa-unlmzs e1s9vvdy4\" style=\"margin-top: 0px; margin-bottom: 0px;\"><p>Citroen DS - ID 20, samoch\u00F3d mia\u0142 jednego w\u0142a\u015Bciciela na po\u0142udniu Francji. Nie ma \u017Cadnej korozji, ani szpachl\u00F3wki. Stan doskona\u0142y. Odnowiony uk\u0142ad hydrauliczny, komora silnika, zap\u0142on, hamulce (zaciski, przewody, klocki i tarcze), uszczelniony silnik, zregenerowany i ustawiony ga\u017Anik, opony, samoch\u00F3d gotowy do u\u017Cytkowania. Zainwestowane ok. 9 tys euro. Szczeg\u00F3\u0142owe rachunki do wgl\u0105du. Auto mo\u017Ce podjecha\u0107 w ka\u017Cde miejsce w Europie. Wn\u0119trze oryginalne i posiada minimalne \u015Blady zu\u017Cycia i przyjemn\u0105 patyn\u0119.<\/p><p>Prezentuje si\u0119 i pracuje fantastycznie, w przesz\u0142o\u015Bci mia\u0142 odnowion\u0105 pow\u0142ok\u0119 lakiernicz\u0105. Posiadam kopi\u0119 pierwszego dowodu rejestracyjnego oraz ksi\u0105\u017Ck\u0119 serwisow\u0105. Skrzynia manualna 4 biegi.<\/p><p>Prosz\u0119 o kontakt wy\u0142\u0105cznie osoby powa\u017Cnie zainteresowane. Tylko sprzeda\u017C, nie interesuje mnie zamiana. Cena ostateczna !<\/p><span data-testid=\"invisibleSpan\" class=\"ooa-1kxpgnj\">&nbsp;<\/span><\/div>",
+        "status": "Używany",
+        "year": 1970,
+        "price": 90000,
+        "negotiable": false,
+        "mileage": 109000,
+        "bodyType": "Sedan",
+        "transmission": "Manualna",
+
+        "details": {
+            "engine": {
+                "fuelType": "Benzyna",
+                "horsepower": 105,
+                "engineCapacity": 1985
+            },
+            "comfortAndExtras": [
+                
+            ]
+        }
+    },
+    {
+        "id": 10,
+        "source": "https://www.otomoto.pl/osobowe/oferta/fiat-seicento-ID6HKYG4.html",
+
+        "offerName": "Fiat Seicento",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/10.webp",
+        "make": "Fiat",
+        "model": "Seicento",
+        "version": "",
+        "description": "<div class=\"ooa-unlmzs e1s9vvdy4\" style=\"margin-top: 0px; margin-bottom: 0px;\"><p><b>FIAT SEICENTO<\/b><br>Oferujemy Fiata Seicento z 1999 roku.<\/p><p>Zarejestrowany w PL<\/p><p>Wa\u017Cny przegl\u0105d i OC <\/p><p><br><\/p><p>Zapraszamy do naszego komisu samochodowego.<\/p><p><br><br><\/p><p>Odwied\u017A nas bez konieczno\u015Bci wcze\u015Bniejszego umawiania i zapoznaj si\u0119 z ofert\u0105 samochod\u00F3w dost\u0119pnych na naszym placu.<\/p><p><br><\/p><p>Dlaczego warto nas wybra\u0107?<\/p><p><br>Ponad 50 aut dost\u0119pnych od r\u0119ki - szeroki wyb\u00F3r modeli w r\u00F3\u017Cnych przedzia\u0142ach cenowych.<\/p><p>Codziennie nowe oferty - regularnie uzupe\u0142niamy nasz plac o \u015Bwie\u017Ce pojazdy.<\/p><p>Bez konieczno\u015Bci umawiania si\u0119 - po prostu przyjed\u017A i zobacz, co mamy w ofercie.<\/p><p><br>Adres:<\/p><p>ul. Opolska 114, 52-014 Wroc\u0142aw<\/p><p><br><\/p><p>Godziny otwarcia:<\/p><p><br><\/p><p>Poniedzia\u0142ek \u2013 Pi\u0105tek: 10:00 \u2013 18:00<\/p><p>Sobota: 10:00 \u2013 15:00<\/p><p>Niedziela: Zamkni\u0119te<br><br><\/p><p>Zadzwo\u0144 lub przyjed\u017A, aby zobaczy\u0107, jakie pojazdy mamy w ofercie. Codziennie nowe modele dost\u0119pne na naszym placu.<\/p><span data-testid=\"invisibleSpan\" class=\"ooa-1kxpgnj\">&nbsp;<\/span><\/div>",
+        "status": "Używany",
+        "year": 1999,
+        "price": 799,
+        "negotiable": false,
+        "mileage": 123000,
+        "bodyType": "Auta małe",
+        "transmission": "Manualna",
+
+        "details": {
+            "engine": {
+                "fuelType": "Benzyna",
+                "horsepower": 54,
+                "engineCapacity": 1108
+            },
+            "comfortAndExtras": [
+                "Przednie okna się opuszczają",
+                "Antenka"
+            ]
+        }
     }
 ]
