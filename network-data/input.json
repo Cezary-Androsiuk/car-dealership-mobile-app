@@ -4,7 +4,7 @@
         "source": "https://www.otomoto.pl/osobowe/oferta/volkswagen-t-roc-ID6HHzHu.html",
 
         "offerName": "Volkswagen T-Roc 1.5 TSI GPF ACT Premium DSG",
-        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/0.webp",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/images/0.webp",
         "make": "Volkswagen",
         "model": "T-Roc",
         "version": "1.5 TSI GPF ACT Premium DSG",
@@ -55,7 +55,7 @@
         "source": "https://www.otomoto.pl/osobowe/oferta/peugeot-5008-ID6HLtpg.html",
 
         "offerName": "Peugeot 5008 1.6 BlueHDI Allure S&S EAT6",
-        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/1.webp",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/images/1.webp",
         "make": "Peugeot",
         "model": "5008",
         "version": "1.6 BlueHDI Allure S&S EAT6",
@@ -101,7 +101,7 @@
         "source": "https://www.otomoto.pl/osobowe/oferta/volkswagen-tiguan-allspace-ID6HLmd7.html",
 
         "offerName": "Volkswagen Tiguan Allspace 2.0 TSI 4Mot Comfortline DSG",
-        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/2.webp",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/images/2.webp",
         "make": "Volkswagen",
         "model": "Tiguan Allspace",
         "version": "2.0 TSI 4Mot Comfortline DSG",
@@ -147,7 +147,7 @@
         "source": "https://www.otomoto.pl/osobowe/oferta/land-rover-range-rover-sport-ID6HLBej.html",
 
         "offerName": "Land Rover Range Rover Sport Supercharged HSE Dynamic",
-        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/3.webp",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/images/3.webp",
         "make": "Land Rover",
         "model": "Range Rover Sport",
         "version": "Supercharged HSE Dynamic",
@@ -190,7 +190,7 @@
         "source": "https://www.otomoto.pl/osobowe/oferta/skoda-karoq-ID6HIdyn.html",
 
         "offerName": "Skoda Karoq 1.5 TSI ACT Sportline DSG",
-        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/4.webp",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/images/4.webp",
         "make": "Skoda",
         "model": "Karoq",
         "version": "1.5 TSI ACT Sportline DSG",
@@ -232,7 +232,7 @@
         "source": "https://www.otomoto.pl/osobowe/oferta/cupra-terramar-ID6HEWbk.html",
 
         "offerName": "Cupra Terramar 2.0 TSI 4Drive Advantage Edition DSG",
-        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/5.webp",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/images/5.webp",
         "make": "Cupra",
         "model": "Terramar",
         "version": "2.0 TSI 4Drive Advantage Edition DSG",
@@ -286,7 +286,7 @@
         "source": "https://www.otomoto.pl/osobowe/oferta/cupra-cupra-formentor-ID6HAxYZ.html",
 
         "offerName": "Cupra Formentor 1.5 eTSI mHEV DSG",
-        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/6.webp",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/images/6.webp",
         "make": "Cupra",
         "model": "Formentor",
         "version": "1.5 eTSI mHEV DSG",
@@ -318,7 +318,7 @@
         "source": "https://www.otomoto.pl/osobowe/oferta/volkswagen-arteon-ID6HATpN.html",
 
         "offerName": "Volkswagen Arteon 2.0 TSI GPF R-Line DSG",
-        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/7.webp",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/images/7.webp",
         "make": "Volkswagen",
         "model": "Arteon",
         "version": "2.0 TSI GPF R-Line DSG",
@@ -367,7 +367,7 @@
         "source": "https://www.otomoto.pl/osobowe/oferta/mazda-cx-5-ID6HLHj3.html",
 
         "offerName": "Mazda CX-5 2.0 Skymotion",
-        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/8.webp",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/images/8.webp",
         "make": "Mazda",
         "model": "CX-5",
         "version": "2.0 Skymotion",
@@ -407,7 +407,7 @@
         "source": "https://www.otomoto.pl/osobowe/oferta/citroen-ds-ID6Gw3IH.html",
 
         "offerName": "Citroën DS",
-        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/9.webp",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/images/9.webp",
         "make": "Citroën",
         "model": "DS",
         "version": "Błękitny",
@@ -436,7 +436,7 @@
         "source": "https://www.otomoto.pl/osobowe/oferta/fiat-seicento-ID6HKYG4.html",
 
         "offerName": "Fiat Seicento",
-        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/10.webp",
+        "thumbnail": "https://raw.githubusercontent.com/Cezary-Androsiuk/car-dealership-mobile-app/refs/heads/master/network-data/images/10.webp",
         "make": "Fiat",
         "model": "Seicento",
         "version": "",
