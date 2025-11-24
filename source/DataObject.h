@@ -12,6 +12,7 @@ class DataObject : public QObject
     Q_PROPERTY(QString offerName READ getOfferName WRITE setOfferName NOTIFY offerNameChanged FINAL)
     Q_PROPERTY(QString thumbnail READ getThumbnail WRITE setThumbnail NOTIFY thumbnailChanged FINAL)
     Q_PROPERTY(QString make READ getMake WRITE setMake NOTIFY makeChanged FINAL)
+    Q_PROPERTY(QString model READ getModel WRITE setModel NOTIFY modelChanged FINAL)
     Q_PROPERTY(QString version READ getVersion WRITE setVersion NOTIFY versionChanged FINAL)
     Q_PROPERTY(QString description READ getDescription WRITE setDescription NOTIFY descriptionChanged FINAL)
     Q_PROPERTY(QString status READ getStatus WRITE setStatus NOTIFY statusChanged FINAL)
@@ -21,7 +22,7 @@ class DataObject : public QObject
     Q_PROPERTY(int mileage READ getMileage WRITE setMileage NOTIFY mileageChanged FINAL)
     Q_PROPERTY(QString bodyType READ getBodyType WRITE setBodyType NOTIFY bodyTypeChanged FINAL)
     Q_PROPERTY(QString transmission READ getTransmission WRITE setTransmission NOTIFY transmissionChanged FINAL)
-    Q_PROPERTY(DataDetails dataDetails READ getDataDetails WRITE setDataDetails NOTIFY dataDetailsChanged FINAL)
+    Q_PROPERTY(DataDetails dataDetails READ getDataDetails CONSTANT FINAL)
 
 public:
     explicit DataObject(QObject *parent = nullptr);
@@ -37,6 +38,9 @@ public:
 
     QString getMake() const;
     void setMake(const QString &make);
+
+    QString getModel() const;
+    void setModel(const QString &model);
 
     QString getVersion() const;
     void setVersion(const QString &version);
@@ -65,14 +69,14 @@ public:
     QString getTransmission() const;
     void setTransmission(const QString &transmission);
 
-    DataDetails getDataDetails() const;
-    void setDataDetails(const DataDetails &dataDetails);
+    DataDetails &getDataDetails() const;
 
 signals:
     void idChanged();
     void offerNameChanged();
     void thumbnailChanged();
     void makeChanged();
+    void modelChanged();
     void versionChanged();
     void descriptionChanged();
     void statusChanged();
@@ -82,7 +86,6 @@ signals:
     void mileageChanged();
     void bodyTypeChanged();
     void transmissionChanged();
-    void dataDetailsChanged();
 
 private:
     int m_id;

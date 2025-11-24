@@ -56,6 +56,19 @@ void DataObject::setMake(const QString &make)
     emit makeChanged();
 }
 
+QString DataObject::getModel() const
+{
+    return m_model;
+}
+
+void DataObject::setModel(const QString &model)
+{
+    if (m_model == model)
+        return;
+    m_model = model;
+    emit modelChanged();
+}
+
 QString DataObject::getVersion() const
 {
     return m_version;
@@ -173,15 +186,7 @@ void DataObject::setTransmission(const QString &transmission)
     emit transmissionChanged();
 }
 
-DataDetails DataObject::getDataDetails() const
+DataDetails &DataObject::getDataDetails() const
 {
     return m_dataDetails;
-}
-
-void DataObject::setDataDetails(const DataDetails &dataDetails)
-{
-    if (m_dataDetails == dataDetails)
-        return;
-    m_dataDetails = dataDetails;
-    emit dataDetailsChanged();
 }

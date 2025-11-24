@@ -9,20 +9,18 @@
 class DataDetails : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(DataEngine dataEngine READ getDataEngine WRITE setDataEngine NOTIFY dataEngineChanged FINAL)
+    Q_PROPERTY(DataEngine dataEngine READ getDataEngine CONSTANT FINAL)
     Q_PROPERTY(QStringList comfortAndExtras READ getComfortAndExtras WRITE setComfortAndExtras NOTIFY comfortAndExtrasChanged FINAL)
 
 public:
     explicit DataDetails(QObject *parent = nullptr);
 
-    DataEngine getDataEngine() const;
-    void setDataEngine(const DataEngine &dataEngine);
+    DataEngine &getDataEngine() const;
 
     QStringList getComfortAndExtras() const;
     void setComfortAndExtras(const QStringList &comfortAndExtras);
 
 signals:
-    void dataEngineChanged();
     void comfortAndExtrasChanged();
 
 private:

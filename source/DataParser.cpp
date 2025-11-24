@@ -129,6 +129,13 @@ bool DataParser::saveUrlFilesHashMap(const StrStrMap &map, QString filePath)
     return true;
 }
 
+void DataParser::resolveDataThumbnailPaths(Data *data)
+{
+    /// read heashmap
+
+    /// change for each dataobject, their thumbnail url based on the map
+}
+
 void DataParser::collectUrlsFromObject(QJsonObject &jsonObject, QStringList &collectedUrls)
 {
     /// collect urls for each object

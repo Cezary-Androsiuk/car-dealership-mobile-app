@@ -20,6 +20,8 @@ public:
 
     static bool saveUrlFilesHashMap(const StrStrMap &map, QString filePath);
 
+    static void resolveDataThumbnailPaths(Data *data);
+
 private:
     /// matching json pattern - explained under class
     static void collectUrlsFromObject(

@@ -22,6 +22,7 @@ private slots:
     void imagesDownloaded();
     void inputDataDownloadFailed();
 
+
 signals:
     void startInitialization();
 
