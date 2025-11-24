@@ -2,7 +2,6 @@
 #define UTILS_H
 
 #define DATA_PATH "./data/"
-#define IMAGES_PATH DATA_PATH "images/"
 
 /// ########################### NETWORK ###########################
 #define NETWORK_PATH DATA_PATH "network/"
