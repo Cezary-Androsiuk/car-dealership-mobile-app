@@ -54,35 +54,10 @@ DataObject *DataBuilder::buildDataObject(const QJsonObject &jObject, QObject *pa
         data->setTransmission( jObject["transmission"].toString() );
 
 
-    DataBuilder::buildDetails()
-    DataDetails &dataDetails = data->getDataDetails();
-
     if(jObject.contains("details"))
     {
-        QJsonObject jDetails = jObject["details"];
-
-        if(jDetails.contains("comfortAndExtras"))
-        {
-            QJsonArray jArray = jDetails["comfortAndExtras"].toArray();
-
-            QStringList array;
-            array.reserve(jArray.size());
-
-            for(int i=0; i<jArray.size(); i++)
-                array.append(jArray[i].toString());
-
-            dataDetails.setComfortAndExtras( jArray );
-        }
-
-        DataEngine &dataEngine = dataDetails.getDataEngine();
-
-        if(jDetails.contains("engine"))
-        {
-            QJsonObject jEngine = jDetails["engine"];
-
-        }
+        DataBuilder::buildDetails(jObject["details"].toObject(), data->getDetailsRef());
     }
-
 
 
     return data;
@@ -91,9 +66,52 @@ DataObject *DataBuilder::buildDataObject(const QJsonObject &jObject, QObject *pa
 void DataBuilder::buildDetails(const QJsonObject jDetails, DataDetails &dataDetails)
 {
 
+    if(jDetails.contains("comfortAndExtras"))
+    {
+        QJsonArray jArray = jDetails["comfortAndExtras"].toArray();
+
+        QStringList array;
+        array.reserve(jArray.size());
+
+        for(int i=0; i<jArray.size(); i++)
+            array.append(jArray[i].toString());
+
+        dataDetails.setComfortAndExtras( array );
+    }
+
+    if(jDetails.contains("engine"))
+    {
+        DataBuilder::buildEngine(jDetails["engine"].toObject(), dataDetails.getEngineRef());
+    }
 }
 
 void DataBuilder::buildEngine(const QJsonObject jEngine, DataEngine &dataEngine)
 {
+    if(jEngine.contains("fuelType"))
+        dataEngine.setFuelType( jEngine["fuelType"].toString() );
 
+    if(jEngine.contains("horsepower"))
+        dataEngine.setHorsepower( jEngine["horsepower"].toInt() );
+
+    if(jEngine.contains("engineCapacity"))
+        dataEngine.setEngineCapacity( jEngine["engineCapacity"].toInt() );
+
+}
+
+Data *DataBuilder::buildData(const QJsonArray &jArray, QObject *parent)
+{
+    Data *data = new Data(parent);
+
+    DataObjectList objects;
+    objects.reserve(jArray.size());
+
+    for(int i=0; i<jArray.size(); i++)
+    {
+        DataObject *dataObject = DataBuilder::buildDataObject(jArray[i].toObject(), data);
+        objects.append(dataObject);
+    }
+
+    data->setObjects(objects);
+
+    return data;
 }

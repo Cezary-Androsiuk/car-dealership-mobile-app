@@ -8,17 +8,18 @@
 class Data : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(DataObjectList dataObjectList READ getDataObjectList NOTIFY dataObjectListChanged FINAL)
+    Q_PROPERTY(DataObjectList objects READ getObjects NOTIFY objectsChanged FINAL)
 public:
     explicit Data(QObject *parent = nullptr);
 
-    DataObjectList getDataObjectList() const;
+    DataObjectList getObjects() const;
+    void setObjects(DataObjectList objects);
 
 signals:
-    void dataObjectListChanged();
+    void objectsChanged();
 
 private:
-    DataObjectList m_dataObjectList;
+    DataObjectList m_objects;
 };
 
 #endif // DATA_H

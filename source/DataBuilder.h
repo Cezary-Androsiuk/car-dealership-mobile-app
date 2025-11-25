@@ -15,7 +15,7 @@ class DataBuilder
     static void buildDetails(const QJsonObject jDetails, DataDetails &dataDetails);
     static void buildEngine(const QJsonObject jEngine, DataEngine &dataEngine);
 public:
-    static Data *buildData(const QJsonObject &jObject, QObject *parent = nullptr);
+    static Data *buildData(const QJsonArray &jArray, QObject *parent = nullptr);
 };
 
 #endif // DATABUILDER_H

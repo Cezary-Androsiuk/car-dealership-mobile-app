@@ -4,7 +4,16 @@ Data::Data(QObject *parent)
     : QObject{parent}
 {}
 
-DataObjectList Data::getDataObjectList() const
+DataObjectList Data::getObjects() const
 {
-    return m_dataObjectList;
+    return m_objects;
 }
+
+void Data::setObjects(DataObjectList objects)
+{
+    if (m_objects == objects)
+        return;
+    m_objects = objects;
+    emit objectsChanged();
+}
+

@@ -186,7 +186,12 @@ void DataObject::setTransmission(const QString &transmission)
     emit transmissionChanged();
 }
 
-DataDetails &DataObject::getDataDetails() const
+const DataDetails *DataObject::getDetails() const
 {
-    return m_dataDetails;
+    return &m_details;
+}
+
+DataDetails &DataObject::getDetailsRef()
+{
+    return m_details;
 }

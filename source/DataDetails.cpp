@@ -4,9 +4,14 @@ DataDetails::DataDetails(QObject *parent)
     : QObject{parent}
 {}
 
-DataEngine &DataDetails::getDataEngine() const
+const DataEngine *DataDetails::getEngine() const
 {
-    return m_dataEngine;
+    return &m_engine;
+}
+
+DataEngine &DataDetails::getEngineRef()
+{
+    return m_engine;
 }
 
 QStringList DataDetails::getComfortAndExtras() const

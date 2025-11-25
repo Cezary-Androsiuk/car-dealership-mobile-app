@@ -22,7 +22,8 @@ class DataObject : public QObject
     Q_PROPERTY(int mileage READ getMileage WRITE setMileage NOTIFY mileageChanged FINAL)
     Q_PROPERTY(QString bodyType READ getBodyType WRITE setBodyType NOTIFY bodyTypeChanged FINAL)
     Q_PROPERTY(QString transmission READ getTransmission WRITE setTransmission NOTIFY transmissionChanged FINAL)
-    Q_PROPERTY(DataDetails dataDetails READ getDataDetails CONSTANT FINAL)
+
+    Q_PROPERTY(const DataDetails *details READ getDetails CONSTANT FINAL)
 
 public:
     explicit DataObject(QObject *parent = nullptr);
@@ -69,7 +70,8 @@ public:
     QString getTransmission() const;
     void setTransmission(const QString &transmission);
 
-    DataDetails &getDataDetails() const;
+    const DataDetails *getDetails() const;
+    DataDetails &getDetailsRef();
 
 signals:
     void idChanged();
@@ -105,7 +107,7 @@ private:
     QString m_bodyType;
     QString m_transmission;
 
-    DataDetails m_dataDetails;
+    DataDetails m_details;
 };
 
 typedef QList<DataObject *> DataObjectList;

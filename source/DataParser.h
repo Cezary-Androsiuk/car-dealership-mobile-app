@@ -7,6 +7,7 @@
 #include <QJsonObject>
 
 typedef QMap<QString, QString> StrStrMap;
+class Data;
 
 class DataParser : public QObject
 {
