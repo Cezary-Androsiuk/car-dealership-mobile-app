@@ -15,13 +15,15 @@ class DataParser : public QObject
 public:
     explicit DataParser(QObject *parent = nullptr);
 
+    static QJsonDocument readJsonDocFile(QString inputFilePath);
     static QStringList collectUrls(QString inputFilePath);
 
     static StrStrMap createUrlFilesHashMap(const QStringList &urls);
 
     static bool saveUrlFilesHashMap(const StrStrMap &map, QString filePath);
 
-    static void resolveDataThumbnailPaths(Data *data);
+
+    static void resolveDataThumbnailPaths(QString hashMapFile, Data *data);
 
 private:
     /// matching json pattern - explained under class

@@ -17,16 +17,14 @@ DataParser::DataParser(QObject *parent)
     : QObject{parent}
 {}
 
-QStringList DataParser::collectUrls(QString inputFilePath)
+QJsonDocument DataParser::readJsonDocFile(QString inputFilePath)
 {
-    qDebug() << "Collecting urls...";
-
     /// read input json file
     QFile file(inputFilePath);
     if(!file.open(QFile::ReadOnly | QFile::Text))
     {
         qDebug() << "Reading file" << inputFilePath << "failed!";
-        throw "Reading file" + inputFilePath + "failed!";
+        throw "Reading file " + inputFilePath + " failed!";
     }
 
     QByteArray data = file.readAll();
@@ -41,10 +39,20 @@ QStringList DataParser::collectUrls(QString inputFilePath)
         throw "Parsing JSON failed, details: " + jsonError.errorString();
     }
 
+    return jsonDoc;
+
+}
+
+QStringList DataParser::collectUrls(QString inputFilePath)
+{
+    qDebug() << "Collecting urls...";
+
+    QJsonDocument jsonDoc = DataParser::readJsonDocFile(inputFilePath); // throws QString
+
     if(!jsonDoc.isArray())
     {
         qDebug() << "Invalid json Format (1)";
-        throw "Invalid json Format (1)";
+        throw QString("Invalid json Format (1)");
     }
 
     QJsonArray inputArray = jsonDoc.array();
@@ -129,9 +137,18 @@ bool DataParser::saveUrlFilesHashMap(const StrStrMap &map, QString filePath)
     return true;
 }
 
-void DataParser::resolveDataThumbnailPaths(Data *data)
+void DataParser::resolveDataThumbnailPaths(QString hashMapFile, Data *data)
 {
     /// read heashmap
+    QJsonDocument jsonDoc = DataParser::readJsonDocFile(hashMapFile);
+
+    if(!jsonDoc.isObject())
+    {
+        qDebug() << "Invalid json Format (1)";
+        throw QString("Invalid json Format (1)");
+    }
+
+    Json
 
     /// change for each dataobject, their thumbnail url based on the map
 }

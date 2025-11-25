@@ -1,6 +1,7 @@
 #include "Backend.h"
 
 #include <QDir>
+#include <QFile>
 #include <thread>
 #include <QtConcurrent/QtConcurrentRun>
 #include <QThreadPool>
@@ -8,11 +9,19 @@
 
 #include "utils.h"
 #include "DataParser.h"
+#include "Data.h"
+#include "DataBuilder.h"
 
 Backend::Backend(QObject *parent)
     : QObject{parent}
+    , m_data{nullptr}
 {
 
+}
+
+Data *Backend::getData() const
+{
+    return m_data;
 }
 
 void Backend::initialize()
@@ -20,7 +29,7 @@ void Backend::initialize()
     qDebug() << "starting initializer";
 
     /// start function asynchronysly;
-    QObject::connect(this, &Backend::startInitialization, this, &Backend::loadData, Qt::SingleShotConnection);
+    QObject::connect(this, &Backend::startInitialization, this, &Backend::downloadData, Qt::SingleShotConnection);
     QFuture<void> future = QtConcurrent::run([this](){
         emit this->startInitialization();
     });
@@ -28,7 +37,7 @@ void Backend::initialize()
 
 
 
-void Backend::loadData()
+void Backend::downloadData()
 {
     qDebug() << "loading Data...";
 
@@ -66,17 +75,47 @@ void Backend::inputDataDownloaded(QString outputFile)
     emit this->dataStatus("Parsing data...");
     QGuiApplication::processEvents();
 
+
+    /// Clear cache directory
+    QDir cacheDir( CACHE_PATH );
+    if(!cacheDir.removeRecursively())
+        qWarning() << "\t" "Unable to remove all files in cache!";
+
+    if(!cacheDir.mkpath("."))
+        qWarning() << "\t" "Unable to create new cache directory!";
+
+    /// Move Input File and Urls Hash Map
+    if(!QFile::rename( NETWORK_PATH INPUT_DATA_FILE_NAME, CACHE_PATH INPUT_DATA_FILE_NAME ))
+            qWarning() << "\t" "Unable to move 'Input data file' to cache location!";
+
+    /// check if file exist
+    if(!QFile::exists( CACHE_PATH INPUT_DATA_FILE_NAME ))
+    {
+        qWarning() << "\t" "Moving 'Input data file' failed!";
+        emit this->dataError("Internal data error, can't create a cache!");
+        return;
+    }
+
     /// process input file
-    QStringList urls = DataParser::collectUrls( NETWORK_PATH INPUT_DATA_FILE_NAME );
-    StrStrMap urlsHashMap = DataParser::createUrlFilesHashMap(urls);
-    DataParser::saveUrlFilesHashMap(urlsHashMap, NETWORK_PATH URLS_HASH_MAP_FILE_NAME);
+    StrStrMap urlsHashMap;
+    try
+    {
+        QStringList urls = DataParser::collectUrls( CACHE_PATH INPUT_DATA_FILE_NAME );
+        urlsHashMap = DataParser::createUrlFilesHashMap(urls);
+        DataParser::saveUrlFilesHashMap(urlsHashMap, CACHE_PATH URLS_HASH_MAP_FILE_NAME);
+    }
+    catch(const QString &e)
+    {
+        qWarning() << "Unable to collect urls: " << e;
+    }
+
 
     emit this->dataStatus("Downloading images...");
 
     /// start downloading images
     QObject::connect(
         &m_networkDownloader, &NetworkDownlaoder::allFilesDownloadingEnded,
-        this, &Backend::imagesDownloaded, Qt::SingleShotConnection);
+        this, &Backend::onImagesDownloadedFinished, Qt::SingleShotConnection);
 
     for(auto i=urlsHashMap.keyBegin(); i!=urlsHashMap.keyEnd(); ++i)
     {
@@ -89,25 +128,17 @@ void Backend::inputDataDownloaded(QString outputFile)
 
 void Backend::onImagesDownloadedFinished(int filesToDownload, int downloadedFiles)
 {
-    if(filesToDownload == 0 || downloadedFiles > 0)
-    {
-        this->imagesDownloaded();
-    }
-    else
-    {
-        this->inputDataDownloadFailed();
-    }
-}
+    qDebug() << QString::asprintf("downloaded %d/%d", downloadedFiles, filesToDownload)
+                    .toStdString().c_str();
 
-void Backend::imagesDownloaded()
-{
-    emit this->dataLoaded();
+    /// Move images
+    if(!QFile::rename( NETWORK_IMAGES_PATH, CACHE_IMAGES_PATH ))
+        qWarning() << "Unable to move images folder from network to cache";
 
-    /// move downloaded data to cache
 
     /// load cache
+    this->loadCache();
 }
-
 
 
 void Backend::inputDataDownloadFailed()
@@ -124,10 +155,55 @@ void Backend::inputDataDownloadFailed()
 
 
     /// chceck if cache exist
-    /// if not emit
-    emit this->dataError("No Data, please provide an internet connection");
-
+    if(!QFile::exists(CACHE_PATH INPUT_DATA_FILE_NAME))
+    {
+        emit this->dataError("No Data, please provide an internet connection");
+        return;
+    }
 
     /// load cache
+    this->loadCache();
+}
 
+void Backend::loadCache()
+{
+    QJsonArray jArray;
+    try
+    {
+        QJsonDocument jsonDoc = DataParser::readJsonDocFile( CACHE_PATH INPUT_DATA_FILE_NAME);
+
+        if(!jsonDoc.isArray())
+        {
+            qDebug() << "Invalid json Format (1)";
+            throw QString("Invalid json Format (1)");
+        }
+
+        jArray = jsonDoc.array();
+    }
+    catch(const QString &e)
+    {
+        qWarning() << "Unable to input data file from cache: " << e;
+        emit this->dataError("Internal data error, can't read input data file from cache!");
+        return;
+    }
+
+    /// remove data if exist
+    if(m_data) delete m_data;
+    m_data = nullptr;
+
+    /// buld data from input data
+    m_data =  DataBuilder::buildData(jArray, this);
+    emit this->dataChanged();
+
+    /// resolve urls, image url to image path
+    try
+    {
+        DataParser::resolveDataThumbnailPaths(CACHE_PATH URLS_HASH_MAP_FILE_NAME, m_data);
+    }
+    catch(const QString &e)
+    {
+        qWarning() << "Unable to resolve urls from data: " << e;
+    }
+
+    emit this->dataLoaded();
 }

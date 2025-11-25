@@ -3,25 +3,29 @@
 
 #include <QObject>
 
-#include "Data.h"
 #include "NetworkDownlaoder.h"
+
+class Data;
 
 class Backend : public QObject
 {
     Q_OBJECT
+    Q_PROPERTY(Data *data READ getData NOTIFY dataChanged FINAL)
 public:
     explicit Backend(QObject *parent = nullptr);
+
+    Data *getData() const;
 
 public slots:
     void initialize();
 
 private slots:
-    void loadData();
+    void downloadData();
     void inputDataDownloaded(QString outputFile);
     void onImagesDownloadedFinished(int filesToDownload, int downloadedFiles);
-    void imagesDownloaded();
     void inputDataDownloadFailed();
 
+    void loadCache();
 
 signals:
     void startInitialization();
@@ -31,6 +35,8 @@ signals:
     void noDataFound();
     void showToast(QString message);
     void dataError(QString details);
+
+    void dataChanged();
 
 private:
     NetworkDownlaoder m_networkDownloader;
