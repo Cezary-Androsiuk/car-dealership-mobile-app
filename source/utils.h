@@ -18,4 +18,7 @@
 #define INPUT_DATA_FILE_NAME "input.json"
 #define URLS_HASH_MAP_FILE_NAME "urlsHashMap.json"
 
+
+#define DISABLE_INTERNET_CONNECTION false
+
 #endif // UTILS_H

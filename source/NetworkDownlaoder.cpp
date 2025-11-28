@@ -59,8 +59,11 @@ void NetworkDownlaoder::handleReply(QNetworkReply *reply)
     QString outputFile = m_repliesInProcess[reply]; /// need to contain the value
     m_repliesInProcess.remove(reply);
 
-    if(reply->error() != QNetworkReply::NoError)
+    if(reply->error() != QNetworkReply::NoError || DISABLE_INTERNET_CONNECTION)
     {
+#if DISABLE_INTERNET_CONNECTION
+        qInfo() << "Internet connection disabled internally";
+#endif
         qWarning() << "Downloading Failed! Reason: " << reply->errorString();
         emit this->fileDownloadingFailed( "Downloading Failed! Reason: " + reply->errorString() );
         reply->deleteLater();
