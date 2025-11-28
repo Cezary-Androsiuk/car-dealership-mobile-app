@@ -6,6 +6,7 @@
 #include <QtConcurrent/QtConcurrentRun>
 #include <QThreadPool>
 #include <QGuiApplication>
+#include <QJsonArray>
 
 #include "utils.h"
 #include "DataParser.h"
@@ -51,24 +52,24 @@ void Backend::downloadData()
 
     QObject::connect(
         &m_networkDownloader, &NetworkDownlaoder::fileDownloaded,
-        this, &Backend::inputDataDownloaded,
+        this, &Backend::onInputDataDownloaded,
         Qt::SingleShotConnection);
 
     QObject::connect(
         &m_networkDownloader, &NetworkDownlaoder::fileDownloadingFailed,
-        this, &Backend::inputDataDownloadFailed,
+        this, &Backend::onInputDataDownloadingFailed,
         Qt::SingleShotConnection);
 
     m_networkDownloader.addFileToDownload( INPUT_DATA_URL, NETWORK_PATH INPUT_DATA_FILE_NAME );
     m_networkDownloader.startDownloads();
 }
 
-void Backend::inputDataDownloaded(QString outputFile)
+void Backend::onInputDataDownloaded(QString outputFile)
 {
     /// disconnect not used (oposite) connection
     QObject::disconnect(
         &m_networkDownloader, &NetworkDownlaoder::fileDownloadingFailed,
-        this, &Backend::inputDataDownloadFailed);
+        this, &Backend::onInputDataDownloadingFailed);
 
     qDebug() << "Downloaded!" << outputFile;
 
@@ -115,7 +116,7 @@ void Backend::inputDataDownloaded(QString outputFile)
     /// start downloading images
     QObject::connect(
         &m_networkDownloader, &NetworkDownlaoder::allFilesDownloadingEnded,
-        this, &Backend::onImagesDownloadedFinished, Qt::SingleShotConnection);
+        this, &Backend::onImagesDownloadingFinished, Qt::SingleShotConnection);
 
     for(auto i=urlsHashMap.keyBegin(); i!=urlsHashMap.keyEnd(); ++i)
     {
@@ -126,7 +127,7 @@ void Backend::inputDataDownloaded(QString outputFile)
 
 }
 
-void Backend::onImagesDownloadedFinished(int filesToDownload, int downloadedFiles)
+void Backend::onImagesDownloadingFinished(int filesToDownload, int downloadedFiles)
 {
     qDebug() << QString::asprintf("downloaded %d/%d", downloadedFiles, filesToDownload)
                     .toStdString().c_str();
@@ -141,18 +142,17 @@ void Backend::onImagesDownloadedFinished(int filesToDownload, int downloadedFile
 }
 
 
-void Backend::inputDataDownloadFailed()
+void Backend::onInputDataDownloadingFailed()
 {
     /// disconnect not used (oposite) connection
     QObject::disconnect(
         &m_networkDownloader, &NetworkDownlaoder::fileDownloaded,
-        this, &Backend::inputDataDownloaded);
+        this, &Backend::onInputDataDownloaded);
 
     qDebug() << "Download failed!";
 
     /// emit toast info
     emit this->showToast("Download failed!");
-
 
     /// chceck if cache exist
     if(!QFile::exists(CACHE_PATH INPUT_DATA_FILE_NAME))
@@ -167,18 +167,16 @@ void Backend::inputDataDownloadFailed()
 
 void Backend::loadCache()
 {
-    QJsonArray jArray;
+    QJsonDocument jsonDoc;
     try
     {
-        QJsonDocument jsonDoc = DataParser::readJsonDocFile( CACHE_PATH INPUT_DATA_FILE_NAME);
+        jsonDoc = DataParser::readJsonDocFile( CACHE_PATH INPUT_DATA_FILE_NAME);
 
         if(!jsonDoc.isArray())
         {
             qDebug() << "Invalid json Format (1)";
             throw QString("Invalid json Format (1)");
         }
-
-        jArray = jsonDoc.array();
     }
     catch(const QString &e)
     {
@@ -192,7 +190,7 @@ void Backend::loadCache()
     m_data = nullptr;
 
     /// buld data from input data
-    m_data =  DataBuilder::buildData(jArray, this);
+    m_data =  DataBuilder::buildData(jsonDoc.array(), this);
     emit this->dataChanged();
 
     /// resolve urls, image url to image path

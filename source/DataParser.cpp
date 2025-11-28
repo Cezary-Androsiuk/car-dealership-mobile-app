@@ -13,6 +13,9 @@
 #include <QJsonValue>
 #include <QDir>
 
+#include "Data.h"
+#include "DataObject.h"
+
 DataParser::DataParser(QObject *parent)
     : QObject{parent}
 {}
@@ -148,9 +151,16 @@ void DataParser::resolveDataThumbnailPaths(QString hashMapFile, Data *data)
         throw QString("Invalid json Format (1)");
     }
 
-    Json
+    QJsonObject jsonHashMap = jsonDoc.object();
 
     /// change for each dataobject, their thumbnail url based on the map
+    DataObjectList dataObjects = data->getObjects();
+    for(int i=0; i<dataObjects.size(); i++)
+    {
+        DataObject *dataObj = dataObjects[i];
+
+        dataObj->setThumbnail( jsonHashMap[ dataObj->getThumbnail() ].toString() );
+    }
 }
 
 void DataParser::collectUrlsFromObject(QJsonObject &jsonObject, QStringList &collectedUrls)

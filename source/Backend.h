@@ -5,7 +5,7 @@
 
 #include "NetworkDownlaoder.h"
 
-class Data;
+#include "Data.h"
 
 class Backend : public QObject
 {
@@ -21,9 +21,9 @@ public slots:
 
 private slots:
     void downloadData();
-    void inputDataDownloaded(QString outputFile);
-    void onImagesDownloadedFinished(int filesToDownload, int downloadedFiles);
-    void inputDataDownloadFailed();
+    void onInputDataDownloaded(QString outputFile);
+    void onImagesDownloadingFinished(int filesToDownload, int downloadedFiles);
+    void onInputDataDownloadingFailed();
 
     void loadCache();
 

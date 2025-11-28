@@ -23,7 +23,6 @@ ApplicationWindow {
 
         function onDataLoaded(){
             mainLoader.setSource("DataView.qml")
-            toast.show("Downloaded!")
         }
 
         function onNoDataFound(){
