@@ -15,6 +15,7 @@
 
 #include "Data.h"
 #include "DataObject.h"
+#include "utils.h"
 
 DataParser::DataParser(QObject *parent)
     : QObject{parent}
@@ -159,7 +160,9 @@ void DataParser::resolveDataThumbnailPaths(QString hashMapFile, Data *data)
     {
         DataObject *dataObj = dataObjects[i];
 
-        dataObj->setThumbnail( jsonHashMap[ dataObj->getThumbnail() ].toString() );
+        QString imageHashName = jsonHashMap[ dataObj->getThumbnail() ].toString();
+
+        dataObj->setThumbnail( CACHE_IMAGES_PATH + imageHashName );
     }
 }
 
