@@ -4,6 +4,16 @@ import QtQuick.Controls.Material
 Item {
     id: dataView
 
+    property bool isListRefreshing: false;
+    function stopRefreshingView()
+    {
+        if(isListRefreshing)
+        {
+            isListRefreshing = false;
+            refreshListView.refreshed();
+        }
+    }
+
     Label{
         anchors.centerIn: parent
         verticalAlignment: Text.AlignVCenter
@@ -38,6 +48,14 @@ Item {
                     fillMode: Image.PreserveAspectFit
                 }
             }
+        }
+    }
+
+    RefreshListView{
+        id: refreshListView
+        model: Backend.list
+        onRequestRefresh: {
+            Backend.downloadNewestData();
         }
     }
 }

@@ -17,10 +17,10 @@ public:
     Data *getData() const;
 
 public slots:
-    void initialize();
+    void downloadNewestData();
 
 private slots:
-    void downloadData();
+    void downloadDataThread();
     void onInputDataDownloaded(QString outputFile);
     void onImagesDownloadingFinished(int filesToDownload, int downloadedFiles);
     void onInputDataDownloadingFailed();
@@ -28,11 +28,10 @@ private slots:
     void loadCache();
 
 signals:
-    void startInitialization();
+    void startDownloading();
 
     void dataStatus(QString status);
     void dataLoaded();
-    void noDataFound();
     void showToast(QString message);
     void dataError(QString details);
 

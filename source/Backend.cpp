@@ -25,20 +25,20 @@ Data *Backend::getData() const
     return m_data;
 }
 
-void Backend::initialize()
+void Backend::downloadNewestData()
 {
-    qDebug() << "starting initializer";
+    qDebug() << "starting data downloading...";
 
     /// start function asynchronysly;
-    QObject::connect(this, &Backend::startInitialization, this, &Backend::downloadData, Qt::SingleShotConnection);
+    QObject::connect(this, &Backend::startDownloading, this, &Backend::downloadDataThread, Qt::SingleShotConnection);
     QFuture<void> future = QtConcurrent::run([this](){
-        emit this->startInitialization();
+        emit this->startDownloading();
     });
 }
 
 
 
-void Backend::downloadData()
+void Backend::downloadDataThread()
 {
     qDebug() << "loading Data...";
 

@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls.Material
 
 ApplicationWindow {
+    id: rootWindow
     width: 420
     height: 700
     visible: true
@@ -13,25 +14,21 @@ ApplicationWindow {
 
     Component.onCompleted: {
         console.log("main component completed")
-        Backend.initialize();
+        Backend.downloadNewestData();
     }
-
 
 
     Connections{
         target: Backend
 
         function onDataLoaded(){
+            // if(mainLoader.item == ) // test if item is already set as DataView
             mainLoader.setSource("DataView.qml")
-        }
-
-        function onNoDataFound(){
-            mainLoader.setSource("NoDataView.qml")
+            // if yes, then call function stopRefreshingView() at this object instead of loading it
         }
 
         function onDataError(details){
             mainLoader.setSource("DataErrorView.qml", { details: details })
-
         }
 
         function onShowToast(message){
