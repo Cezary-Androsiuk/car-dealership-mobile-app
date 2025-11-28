@@ -160,9 +160,15 @@ void DataParser::resolveDataThumbnailPaths(QString hashMapFile, Data *data)
     {
         DataObject *dataObj = dataObjects[i];
 
-        QString imageHashName = jsonHashMap[ dataObj->getThumbnail() ].toString();
+        QString urlThumbnail =dataObj->getThumbnail();
+        QString imageHashName = jsonHashMap[ urlThumbnail ].toString();
+        QString imageHashPath = CACHE_IMAGES_PATH + imageHashName;
+        QString absoluteImageHashPath = QFileInfo(imageHashPath).absoluteFilePath();
 
-        dataObj->setThumbnail( CACHE_IMAGES_PATH + imageHashName );
+        /// adds file:/// to path
+        QString resolvedQmlPath = QUrl::fromLocalFile(absoluteImageHashPath).toString();
+
+        dataObj->setThumbnail( resolvedQmlPath );
     }
 }
 
