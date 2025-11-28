@@ -138,7 +138,23 @@ void Backend::onImagesDownloadingFinished(int filesToDownload, int downloadedFil
 
 
     /// load cache
-    this->loadCache();
+    try
+    {
+        this->loadCache();
+    }
+    catch(const QString &e)
+    {
+        /// emit toast info
+        emit this->showToast("Failed loading cache memory!");
+
+        emit this->dataError(e);
+        return;
+    }
+
+    /// emit toast info
+    emit this->showToast("Data Downloaded");
+
+    emit this->dataLoaded();
 }
 
 
@@ -151,18 +167,34 @@ void Backend::onInputDataDownloadingFailed()
 
     qDebug() << "Download failed!";
 
-    /// emit toast info
-    emit this->showToast("Download failed!");
-
     /// chceck if cache exist
     if(!QFile::exists(CACHE_PATH INPUT_DATA_FILE_NAME))
     {
+        /// emit toast info
+        emit this->showToast("Download failed! No cache yet!");
+
         emit this->dataError("No Data, please provide an internet connection");
         return;
     }
 
     /// load cache
-    this->loadCache();
+    try
+    {
+        this->loadCache();
+    }
+    catch(const QString &e)
+    {
+        /// emit toast info
+        emit this->showToast("Download failed! Failed loading cache!");
+
+        emit this->dataError(e);
+        return;
+    }
+
+    /// emit toast info
+    emit this->showToast("Download failed! Using cache.");
+
+    emit this->dataLoaded();
 }
 
 void Backend::loadCache()
@@ -180,9 +212,7 @@ void Backend::loadCache()
     }
     catch(const QString &e)
     {
-        qWarning() << "Unable to input data file from cache: " << e;
-        emit this->dataError("Internal data error, can't read input data file from cache!");
-        return;
+        throw QString("Internal data error, can't read input data file from cache!");
     }
 
     /// remove data if exist
@@ -202,6 +232,4 @@ void Backend::loadCache()
     {
         qWarning() << "Unable to resolve urls from data: " << e;
     }
-
-    emit this->dataLoaded();
 }
