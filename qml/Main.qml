@@ -22,9 +22,15 @@ ApplicationWindow {
         target: Backend
 
         function onDataLoaded(){
-            // if(mainLoader.item == ) // test if item is already set as DataView
-            mainLoader.setSource("DataView.qml")
-            // if yes, then call function stopRefreshingView() at this object instead of loading it
+            if(mainLoader.item.objectName === "DataView") // test if item is already set as DataView
+            {
+                // if yes, then call function stopRefreshingView() at this object instead of loading it
+                mainLoader.item.stopRefreshingView();
+            }
+            else
+            {
+                mainLoader.setSource("DataView.qml")
+            }
         }
 
         function onDataError(details){

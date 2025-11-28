@@ -103,7 +103,7 @@ Item {
                     text: {
                         if(index === 0)
                         {
-                            return modelData
+                            return modelData.id
                                     + " " + Math.round(listView.contentY)
                                     // + " " + listView.atYBeginning
                                     // + " " + listView.atYEnd
@@ -114,7 +114,7 @@ Item {
                         }
                         else
                         {
-                            return modelData;
+                            return modelData.id;
                         }
                     }
 
