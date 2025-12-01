@@ -72,4 +72,79 @@ Item {
         }
     }
 
+    readonly property var dataElementModel: [
+        {
+            type: "title",
+            value: dataElement.
+        },
+        {
+            type: "image",
+            value: dataElement.thumbnail
+        },
+
+    ]
+
+    Item{
+        id: listViewContainer
+        anchors{
+            top: pageHeader.bottom
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
+
+
+        ListView{
+            anchors.fill: parent
+            model: dataElementModel
+
+            delegate: Item{
+                width: listViewContainer.width
+                height: {
+                    if(modelData.type === "image")
+                        return 200
+                    else if(modelData.type === "text")
+                        return 60
+                    else
+                        return 5
+                }
+
+                Label{
+                    anchors.centerIn: parent
+                    text: modelData.type + modelData.value
+                }
+            }
+        }
+
+        // ListView{
+        //     anchors.fill: parent
+        //     model: Object.keys(dataDetails.dataElement)
+
+        //     delegate: Item{
+        //         width: parent.width
+        //         height: 60
+
+        //         Label{
+        //             anchors.centerIn: parent
+        //             text: modelData + " : " + dataDetails.dataElement[modelData]
+        //         }
+        //     }
+        // }
+
+        // ScrollView{
+        //     anchors.fill: parent
+        //     Column{
+        //         width: parent.width
+        //         Repeater{
+        //             model: 20
+        //             Rectangle{
+        //                 width: parent.width
+        //                 height: 120
+        //                 color: Qt.rgba(1,0,0,index/20)
+        //             }
+        //         }
+        //     }
+        // }
+
+    }
 }

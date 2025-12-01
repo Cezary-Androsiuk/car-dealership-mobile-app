@@ -2,11 +2,15 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 
+#include <QImageReader>
+
 #include "Backend.h"
 
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
+
+    qDebug() << QImageReader::supportedImageFormats();
 
     Backend *backend = new Backend(&app);
 
