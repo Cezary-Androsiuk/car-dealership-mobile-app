@@ -133,11 +133,21 @@ Item {
                 startRefreshingTime = Date.now()
                 Backend.downloadNewestData();
             }
+            onRequestElementDetails: elementIndex => {
+                dataDetails.dataElement = Backend.data.objects[elementIndex];
+                dataDetails.show();
+            }
         }
     }
 
 
+    /// basic stack view XD
+
     Settings{
         id: settings
+    }
+
+    DataDetails{
+        id: dataDetails
     }
 }

@@ -11,6 +11,8 @@ Item {
         listView.refreshEnd()
     }
 
+    signal requestElementDetails(int elementIndex)
+
     required property var model
 
 
@@ -158,6 +160,15 @@ Item {
 
             }
 
+            MouseArea{
+                anchors{
+                    fill: parent
+                    margins: 4
+                }
+                onClicked: {
+                    refreshingListView.requestElementDetails(index)
+                }
+            }
 
             Label{
                 id: extendButton
