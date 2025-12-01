@@ -18,6 +18,23 @@ Item {
 
     readonly property double deltaLimit: -100;
 
+
+    function splitNumerByThousands(value)
+    {
+        const price = value.toString()
+        let outString = ""
+
+        const overtake = price.length % 3
+        for(let i=0; i<price.length; i++)
+        {
+            if(i % 3 === overtake && i !== 0)
+                outString += " "
+            outString += price[i]
+        }
+
+        return outString
+    }
+
     ListView{
         id: listView
         anchors.fill: parent
@@ -55,8 +72,6 @@ Item {
                     refreshStart();
                 }
             }
-
-
         }
 
         model: refreshingListView.model
@@ -85,31 +100,33 @@ Item {
             width: refreshingListView.width
             height: extended ? extendedHeight : defaultHeight
 
-            readonly property int extendedHeight: 170
-            readonly property int defaultHeight: 80
+            readonly property int extendedHeight: 200
+            readonly property int defaultHeight: 90
 
             property bool extended: false
 
-            Behavior on height{
-                NumberAnimation{
-                    duration: 150
-                    easing.type: Easing.InOutQuad
-                }
-            }
+            Behavior on height{ NumberAnimation{ duration: 150; easing.type: Easing.InOutQuad } }
 
             Item{
                 id: thumbnailContainer
                 anchors{
                     top: parent.top
-                    bottom: parent.bottom
+                    topMargin: row.extended? 30 : 4
                     left: parent.left
-                    // right: extendButton.left
+                    leftMargin: 4
+                    bottom: parent.bottom
+                    bottomMargin: 4
                 }
                 width: thumbnailImage.width
 
+                Behavior on anchors.topMargin { NumberAnimation{ duration: 150; easing.type: Easing.InOutQuad } }
+                Behavior on anchors.leftMargin { NumberAnimation{ duration: 150; easing.type: Easing.InOutQuad } }
+                Behavior on anchors.rightMargin { NumberAnimation{ duration: 150; easing.type: Easing.InOutQuad } }
+                Behavior on anchors.bottomMargin { NumberAnimation{ duration: 150; easing.type: Easing.InOutQuad } }
+
                 Rectangle{
                     id: noImageBorder
-                    anchors.fill: thumbnailImage
+                    anchors.fill: parent
                     color: "transparent"
                     border.color: "lightgray"
                     border.width: 2
@@ -117,50 +134,50 @@ Item {
 
                 Image{
                     id: thumbnailImage
-                    anchors{
-                        topMargin: row.extended? 15 : 4
-                        leftMargin: row.extended? 15 : 4
-                        // rightMargin: row.extended? 15 : 4
-                        bottomMargin: row.extended? 50 : 4
-                        top: parent.top
-                        bottom: parent.bottom
-                        left: parent.left
-                    }
-
-                    Behavior on anchors.topMargin {
-                        NumberAnimation{
-                            duration: 150
-                            easing.type: Easing.InOutQuad
-                        }
-                    }
-
-                    Behavior on anchors.leftMargin {
-                        NumberAnimation{
-                            duration: 150
-                            easing.type: Easing.InOutQuad
-                        }
-                    }
-
-                    Behavior on anchors.rightMargin {
-                        NumberAnimation{
-                            duration: 150
-                            easing.type: Easing.InOutQuad
-                        }
-                    }
-
-                    Behavior on anchors.bottomMargin {
-                        NumberAnimation{
-                            duration: 150
-                            easing.type: Easing.InOutQuad
-                        }
-                    }
-
                     width: (16.0/9.0) * height
+                    height: parent.height
                     source: modelData.thumbnail
                     fillMode: Image.PreserveAspectCrop
                 }
 
             }
+
+
+
+            Label{
+                id: titleLabel
+                anchors{
+                    top: parent.top
+                    left: parent.left
+                    leftMargin: row.extended? 4 : 160
+                    right: extendButtonSeparator.left
+                }
+
+                Behavior on anchors.leftMargin { NumberAnimation{ duration: 150; easing.type: Easing.InOutQuad } }
+
+                elide: Text.ElideRight
+                text: modelData.offerName
+                horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignVCenter
+            }
+
+            Label{
+                id: priceLabel
+                anchors{
+                    left: thumbnailContainer.right
+                    leftMargin: 4
+                    bottom: parent.bottom
+                    bottomMargin: 5
+                }
+
+                text: splitNumerByThousands(modelData.price) + " PLN"
+                font.pixelSize: 18
+                horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignVCenter
+            }
+
+
+
 
             MouseArea{
                 anchors{
@@ -171,20 +188,23 @@ Item {
                     refreshingListView.requestElementDetails(index)
                 }
             }
-            
-            Label{
-                id: titleLabel
+
+            Rectangle{
+                id: extendButtonSeparator
                 anchors{
                     top: parent.top
-                    left: thumbnailContainer.right
-                    leftMargin: 5
-                    right: parent.right
+                    topMargin: 5
+                    right: extendButton.left
+                    bottom: parent.bottom
+                    bottomMargin: 5
                 }
 
-                elide: Text.ElideRight
-                text: modelData.offerName
-                horizontalAlignment: Text.AlignLeft
-                verticalAlignment: Text.AlignVCenter
+                width: 1
+                color: "white"
+                opacity: row.extended ? 0.0 : 0.3
+
+                Behavior on opacity { NumberAnimation{ duration: 150; easing.type: Easing.InOutQuad } }
+
             }
 
             Label{
@@ -193,21 +213,26 @@ Item {
                     right: parent.right
                     top: parent.top
                 }
-                width: row.defaultHeight
+                width: height/2
                 height: row.defaultHeight
 
                 text: row.extended ? "^" : "v"
                 font.pixelSize: 20
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
+            }
 
-                MouseArea{
-                    anchors.fill: parent
-                    onClicked: {
-                        row.extended = !row.extended
-                    }
+            MouseArea{
+                anchors{
+                    right: parent.right
+                    top: parent.top
                 }
+                width: height/2
+                height: parent.height
 
+                onClicked: {
+                    row.extended = !row.extended
+                }
             }
 
 

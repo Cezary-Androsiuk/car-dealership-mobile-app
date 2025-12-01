@@ -3,8 +3,8 @@ import QtQuick.Controls.Material
 
 ApplicationWindow {
     id: rootWindow
-    width: 420
-    height: 700
+    width: 441
+    height: 778 // galaxy s10 resolution
     visible: true
 
     onHeightChanged: console.log(width + " " + height)
