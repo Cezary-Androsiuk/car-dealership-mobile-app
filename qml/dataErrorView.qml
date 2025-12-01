@@ -58,12 +58,5 @@ Item {
             running: false
             visible: false
         }
-
-        Label{
-            anchors.horizontalCenter: parent.horizontalCenter
-            verticalAlignment: Text.AlignVCenter
-            horizontalAlignment: Text.AlignHCenter
-            text: "test"
-        }
     }
 }
