@@ -29,12 +29,20 @@ ApplicationWindow {
             }
             else
             {
+                console.log("setting source...")
                 mainLoader.setSource("DataView.qml")
             }
         }
 
         function onDataError(details){
-            mainLoader.setSource("DataErrorView.qml", { details: details })
+            if(mainLoader.item.objectName === "DataErrorView")
+            {
+                mainLoader.item.stopRefreshingView();
+            }
+            else
+            {
+                mainLoader.setSource("DataErrorView.qml", { details: details })
+            }
         }
 
         function onShowToast(message){
@@ -50,34 +58,9 @@ ApplicationWindow {
     Loader{
         id: mainLoader
         anchors.fill: parent
-        sourceComponent: loading
-    }
-
-    Component{
-        id: loading
-
-        Item{
-            anchors.fill: parent
-
-            property alias loadingDataStatus: loadingDataStatusLabel.text
-
-            BusyIndicator{
-                id: busyIndicator
-                anchors.centerIn: parent
-                running: true
-            }
-
-            Label{
-                id: loadingDataStatusLabel
-                anchors{
-                    horizontalCenter: parent.horizontalCenter
-                    top: busyIndicator.bottom
-                    topMargin: 10
-                }
-                text: "Waiting for Backend..."
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-            }
+        source: "Loading.qml"
+        onLoaded: {
+            console.log("main loader loaded")
         }
     }
 

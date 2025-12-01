@@ -36,6 +36,27 @@ void Backend::downloadNewestData()
     });
 }
 
+void Backend::removeCache()
+{
+    QDir cacheDir( CACHE_PATH );
+    if(!cacheDir.removeRecursively())
+    {
+        qWarning() << "Can't remove cache directory";
+    }
+
+    if(QFile::exists( CACHE_PATH ))
+    {
+        qWarning() << "Cache directory still exist";
+
+        /// emit toast info
+        emit this->showToast("Can't remove all cache!");
+        return;
+    }
+
+    /// emit toast info
+    emit this->showToast("Cache removed successfully!");
+}
+
 
 
 void Backend::downloadDataThread()
@@ -132,7 +153,7 @@ void Backend::onImagesDownloadingFinished(int filesToDownload, int downloadedFil
     qDebug() << QString::asprintf("downloaded %d/%d", downloadedFiles, filesToDownload)
                     .toStdString().c_str();
 
-    /// Move images
+    /// Move images from network to cache
     if(!QFile::rename( NETWORK_IMAGES_PATH, CACHE_IMAGES_PATH ))
         qWarning() << "Unable to move images folder from network to cache";
 

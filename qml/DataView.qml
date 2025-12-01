@@ -7,11 +7,35 @@ Item {
     objectName: "DataView"
 
     property bool isListRefreshing: false;
+    property var startRefreshingTime;
+    readonly property int refreshedSignalDelay: 500
     function stopRefreshingView()
     {
-        if(isListRefreshing)
+        if(!isListRefreshing)
+            return;
+
+        isListRefreshing = false;
+        var refreshingTime = Date.now() - startRefreshingTime;
+
+        console.log("duration: " + refreshingTime)
+
+        /// ensure that refreshing will be at least <refreshedSignalDelay> duration
+        if(refreshingTime > refreshedSignalDelay)
         {
-            isListRefreshing = false;
+            refreshListView.refreshed();
+            return;
+        }
+
+        refreshedSignalDelayTimer.interval = refreshedSignalDelay - refreshingTime;
+        refreshedSignalDelayTimer.start();
+    }
+
+    Timer{
+        id: refreshedSignalDelayTimer
+        interval: 2000
+        repeat: false
+        running: false
+        onTriggered: {
             refreshListView.refreshed();
         }
     }
@@ -62,6 +86,19 @@ Item {
         }
         height: parent.height * 0.1
 
+        Button{
+            anchors{
+                verticalCenter: parent.verticalCenter
+                right: parent.right
+                rightMargin: 10
+            }
+
+            text: "Settings"
+            onClicked: {
+                settings.show()
+            }
+        }
+
         Rectangle{
             id: pageHeaderSeparator
             anchors{
@@ -73,7 +110,6 @@ Item {
             }
             height: 1
             opacity: 0.3
-
         }
     }
 
@@ -88,13 +124,20 @@ Item {
 
         clip: true
 
-        RefreshListView{
-            id: refreshListView
-            model: Backend.data.objects
-            onRequestRefresh: {
-                isListRefreshing = true;
-                Backend.downloadNewestData();
-            }
-        }
+        /// gives a lot of latency
+        // RefreshListView{
+        //     id: refreshListView
+        //     model: Backend.data.objects
+        //     onRequestRefresh: {
+        //         isListRefreshing = true;
+        //         startRefreshingTime = Date.now()
+        //         Backend.downloadNewestData();
+        //     }
+        // }
+    }
+
+
+    Settings{
+        id: settings
     }
 }

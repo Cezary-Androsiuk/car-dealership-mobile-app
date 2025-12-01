@@ -18,6 +18,7 @@ public:
 
 public slots:
     void downloadNewestData();
+    void removeCache();
 
 private slots:
     void downloadDataThread();

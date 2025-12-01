@@ -37,6 +37,8 @@ qt_add_qml_module(appCarDealershipMobileApp
     SOURCES source/DataEngine.h source/DataEngine.cpp
     SOURCES source/DataBuilder.h source/DataBuilder.cpp
     QML_FILES qml/RefreshListView.qml
+    QML_FILES qml/Loading.qml
+    QML_FILES qml/Settings.qml
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.

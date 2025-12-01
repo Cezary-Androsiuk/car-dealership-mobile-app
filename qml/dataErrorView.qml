@@ -5,6 +5,14 @@ Item {
     id: dataErrorView
     required property string details
 
+    objectName: "DataErrorView"
+
+    function stopRefreshingView()
+    {
+        busyIndicator.running = false;
+        busyIndicator.visible = false;
+    }
+
     Column{
         anchors{
             left: parent.left
@@ -31,6 +39,31 @@ Item {
             wrapMode: Text.WordWrap
 
             text: dataErrorView.details
+        }
+
+        Button{
+            anchors.horizontalCenter: parent.horizontalCenter
+
+            text: "Retry"
+            onClicked: {
+                busyIndicator.running = true;
+                busyIndicator.visible = true;
+                Backend.downloadNewestData();
+            }
+        }
+
+        BusyIndicator{
+            id: busyIndicator
+            anchors.horizontalCenter: parent.horizontalCenter
+            running: false
+            visible: false
+        }
+
+        Label{
+            anchors.horizontalCenter: parent.horizontalCenter
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignHCenter
+            text: "test"
         }
     }
 }

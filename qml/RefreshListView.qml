@@ -119,6 +119,11 @@ Item {
                     }
 
                 }
+                Image {
+                    source: modelData.thumbnail
+                    height: 100
+                    fillMode: Image.PreserveAspectFit
+                }
             }
 
         }
