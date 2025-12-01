@@ -62,6 +62,22 @@ target_link_libraries(appCarDealershipMobileApp PRIVATE Qt6::Core)
 target_link_libraries(appCarDealershipMobileApp PRIVATE Qt6::Core)
 target_link_libraries(appCarDealershipMobileApp PRIVATE Qt6::Core)
 
+if (ANDROID)
+    # Ustal ścieżkę do folderu z bibliotekami (dostosuj do swojej struktury folderów)
+    set(ANDROID_OPENSSL_DIR ${CMAKE_CURRENT_SOURCE_DIR}/android/libs/${ANDROID_ABI})
+
+    # Zdefiniuj pliki (nazwy mogą się różnić zależnie od wersji OpenSSL, np. libssl_3.so)
+    set(ANDROID_EXTRA_LIBS
+        ${ANDROID_OPENSSL_DIR}/libcrypto_3.so
+        ${ANDROID_OPENSSL_DIR}/libssl_3.so
+    )
+
+    # Przypisz biblioteki do targetu Twojej aplikacji
+    set_target_properties(appCarDealershipMobileApp PROPERTIES
+        QT_ANDROID_EXTRA_LIBS "${ANDROID_EXTRA_LIBS}"
+    )
+endif()
+
 include(GNUInstallDirs)
 install(TARGETS appCarDealershipMobileApp
     BUNDLE DESTINATION .
