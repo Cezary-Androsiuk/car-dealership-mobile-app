@@ -19,6 +19,6 @@
 #define URLS_HASH_MAP_FILE_NAME "urlsHashMap.json"
 
 
-#define DISABLE_INTERNET_CONNECTION false
+#define DISABLE_INTERNET_CONNECTION true
 
 #endif // UTILS_H
