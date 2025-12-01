@@ -79,52 +79,109 @@ Item {
         }
 
         delegate: Item{
+            id: row
             width: refreshingListView.width
-            height: 60
+            height: extended ? extendedHeight : defaultHeight
 
-            Rectangle{
-                anchors{
-                    fill: parent
-                    margins: 10
-                }
+            readonly property int extendedHeight: 170
+            readonly property int defaultHeight: 80
 
-                color: Qt.rgba(1, 1, 1, 0.3)
-                radius: 10
+            property bool extended: false
 
-
-                Label{
-                    anchors{
-                        fill: parent
-                        leftMargin: 10
-                    }
-
-                    horizontalAlignment: Text.AlignLeft
-                    verticalAlignment: Text.AlignVCenter
-                    text: {
-                        if(index === 0)
-                        {
-                            return modelData.id
-                                    + " " + Math.round(listView.contentY)
-                                    // + " " + listView.atYBeginning
-                                    // + " " + listView.atYEnd
-                                    // + " " + listView.dragging
-                                    // + " " + listView.dragEnded()
-                            ;
-
-                        }
-                        else
-                        {
-                            return modelData.id;
-                        }
-                    }
-
-                }
-                Image {
-                    source: modelData.thumbnail
-                    height: 100
-                    fillMode: Image.PreserveAspectFit
+            Behavior on height{
+                NumberAnimation{
+                    duration: 150
+                    easing.type: Easing.InOutQuad
                 }
             }
+
+            Item{
+                anchors{
+                    top: parent.top
+                    bottom: parent.bottom
+                    left: parent.left
+                    right: extendButton.left
+                }
+
+                Rectangle{
+                    id: noImageBorder
+                    anchors.fill: thumbnailImage
+                    color: "transparent"
+                    border.color: "lightgray"
+                    border.width: 2
+                }
+
+                Image{
+                    id: thumbnailImage
+                    anchors{
+                        topMargin: row.extended? 15 : 4
+                        leftMargin: row.extended? 15 : 4
+                        rightMargin: row.extended? 15 : 4
+                        bottomMargin: row.extended? 50 : 4
+                        top: parent.top
+                        bottom: parent.bottom
+                        left: parent.left
+                    }
+
+                    Behavior on anchors.topMargin {
+                        NumberAnimation{
+                            duration: 150
+                            easing.type: Easing.InOutQuad
+                        }
+                    }
+
+                    Behavior on anchors.leftMargin {
+                        NumberAnimation{
+                            duration: 150
+                            easing.type: Easing.InOutQuad
+                        }
+                    }
+
+                    Behavior on anchors.rightMargin {
+                        NumberAnimation{
+                            duration: 150
+                            easing.type: Easing.InOutQuad
+                        }
+                    }
+
+                    Behavior on anchors.bottomMargin {
+                        NumberAnimation{
+                            duration: 150
+                            easing.type: Easing.InOutQuad
+                        }
+                    }
+
+                    width: (16.0/9.0) * height
+                    source: modelData.thumbnail
+                    fillMode: Image.PreserveAspectCrop
+                }
+
+            }
+
+
+            Label{
+                id: extendButton
+                anchors{
+                    right: parent.right
+                    top: parent.top
+                }
+                width: row.defaultHeight
+                height: row.defaultHeight
+
+                text: row.extended ? "^" : "v"
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        row.extended = !row.extended
+                    }
+                }
+
+            }
+
+
 
         }
     }

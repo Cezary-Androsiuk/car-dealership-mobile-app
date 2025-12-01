@@ -125,15 +125,15 @@ Item {
         clip: true
 
         /// gives a lot of latency
-        // RefreshListView{
-        //     id: refreshListView
-        //     model: Backend.data.objects
-        //     onRequestRefresh: {
-        //         isListRefreshing = true;
-        //         startRefreshingTime = Date.now()
-        //         Backend.downloadNewestData();
-        //     }
-        // }
+        RefreshListView{
+            id: refreshListView
+            model: Backend.data.objects
+            onRequestRefresh: {
+                isListRefreshing = true;
+                startRefreshingTime = Date.now()
+                Backend.downloadNewestData();
+            }
+        }
     }
 
 
