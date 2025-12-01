@@ -6,13 +6,27 @@ Item {
     anchors.fill: parent
 
     visible: false
+    opacity: 0.0
+
+    Behavior on opacity{
+        NumberAnimation{
+            duration: 100
+            easing.type: Easing.InOutQuad
+        }
+    }
 
     function show(){
-        settings.visible = true;
+        visible = true;
+        opacity = 1.0
     }
 
     function hide(){
-        settings.visible = false;
+        opacity = 0.0
+    }
+
+    onOpacityChanged: {
+        if(opacity === 0.0)
+            visible = false;
     }
 
     Rectangle{

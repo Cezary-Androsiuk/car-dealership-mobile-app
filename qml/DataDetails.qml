@@ -3,17 +3,32 @@ import QtQuick.Controls.Material
 
 Item {
     id: dataDetails
+    anchors.fill: parent
 
     property var dataElement
 
     visible: false
+    opacity: 0.0
+
+    Behavior on opacity{
+        NumberAnimation{
+            duration: 100
+            easing.type: Easing.InOutQuad
+        }
+    }
 
     function show(){
-        dataDetails.visible = true;
+        visible = true;
+        opacity = 1.0
     }
 
     function hide(){
-        dataDetails.visible = false;
+        opacity = 0.0
+    }
+
+    onOpacityChanged: {
+        if(opacity === 0.0)
+            visible = false;
     }
 
     Rectangle{
