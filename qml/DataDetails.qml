@@ -20,6 +20,8 @@ Item {
     property var previousDataElement
     function show(){
         console.log("Showing data details")
+
+        // to keep position while reopening the same offer and reset it while oppening other offer
         if(dataElement !== previousDataElement)
         {
             listFlickable.contentY = 0
@@ -79,21 +81,6 @@ Item {
             anchors.fill: parent
             contentWidth: column.width
             contentHeight: column.height
-
-            property bool scrollContentDown: false
-            onContentHeightChanged: {
-                /// code for comfort and extras - works only when extended list is the last one
-                if(scrollContentDown)
-                {
-                    let comfortAndExtrasHeight = comfortAndExtrasContainer.height +
-                        comfortAndExtrasHeader.height
-
-                    let topPointHeight = comfortAndExtrasHeight > height ?
-                            comfortAndExtrasHeight : height
-
-                    contentY = contentHeight - topPointHeight
-                }
-            }
 
             Column{
                 id: column
@@ -395,8 +382,6 @@ Item {
                             anchors.fill: parent
                             onClicked: {
                                 comfortAndExtrasContainer.extended = !comfortAndExtrasContainer.extended
-                                if(comfortAndExtrasContainer.extended)
-                                    listFlickable.scrollContentDown = true;
                             }
                         }
                     }
