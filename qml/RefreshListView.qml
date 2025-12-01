@@ -101,7 +101,8 @@ Item {
             height: extended ? extendedHeight : defaultHeight
 
             readonly property int extendedHeight: 200
-            readonly property int defaultHeight: 90
+            readonly property int defaultHeight: 80
+            readonly property int defaultImageWidth: (16.0/9.0) * (defaultHeight-8)
 
             property bool extended: false
 
@@ -120,9 +121,6 @@ Item {
                 width: thumbnailImage.width
 
                 Behavior on anchors.topMargin { NumberAnimation{ duration: 150; easing.type: Easing.InOutQuad } }
-                Behavior on anchors.leftMargin { NumberAnimation{ duration: 150; easing.type: Easing.InOutQuad } }
-                Behavior on anchors.rightMargin { NumberAnimation{ duration: 150; easing.type: Easing.InOutQuad } }
-                Behavior on anchors.bottomMargin { NumberAnimation{ duration: 150; easing.type: Easing.InOutQuad } }
 
                 Rectangle{
                     id: noImageBorder
@@ -136,6 +134,7 @@ Item {
                     id: thumbnailImage
                     width: (16.0/9.0) * height
                     height: parent.height
+
                     source: modelData.thumbnail
                     fillMode: Image.PreserveAspectCrop
                 }
@@ -149,7 +148,7 @@ Item {
                 anchors{
                     top: parent.top
                     left: parent.left
-                    leftMargin: row.extended? 4 : 160
+                    leftMargin: row.extended? 4 : (row.defaultImageWidth+8)
                     right: extendButtonSeparator.left
                 }
 
@@ -167,10 +166,13 @@ Item {
                     left: thumbnailContainer.right
                     leftMargin: 4
                     bottom: parent.bottom
-                    bottomMargin: 5
+                    bottomMargin: parent.height * 0.3
                 }
 
+                Behavior on opacity { NumberAnimation{ duration: 150; easing.type: Easing.InOutQuad } }
+
                 text: splitNumerByThousands(modelData.price) + " PLN"
+                opacity: row.extended ? 0.0 : 1.0
                 font.pixelSize: 18
                 horizontalAlignment: Text.AlignLeft
                 verticalAlignment: Text.AlignVCenter
@@ -217,7 +219,7 @@ Item {
                 height: row.defaultHeight
 
                 text: row.extended ? "^" : "v"
-                font.pixelSize: 20
+                font.pixelSize: row.extended ? 22 : 20
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
             }
