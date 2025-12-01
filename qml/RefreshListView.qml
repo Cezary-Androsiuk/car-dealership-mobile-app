@@ -133,10 +133,14 @@ Item {
                 Image{
                     id: thumbnailImage
                     width: (16.0/9.0) * height
+                    onWidthChanged: console.log(width) // 128 - 300
                     height: parent.height
 
                     source: modelData.thumbnail
                     fillMode: Image.PreserveAspectCrop
+
+                    retainWhileLoading: true
+                    asynchronous: true
                 }
 
             }

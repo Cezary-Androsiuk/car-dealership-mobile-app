@@ -1,8 +1,15 @@
 #include "DataObject.h"
 
+#include <QImageReader>
+
 DataObject::DataObject(QObject *parent)
     : QObject{parent}
-{}
+    , m_thumbnailRatio{-1}
+{
+    QObject::connect(
+        this, &DataObject::thumbnailChanged,
+        this, &DataObject::computeThumbnailRatio);
+}
 
 int DataObject::getId() const
 {
@@ -194,4 +201,27 @@ const DataDetails *DataObject::getDetails() const
 DataDetails &DataObject::getDetailsRef()
 {
     return m_details;
+}
+
+float DataObject::getThumbnailRatio() const
+{
+    return m_thumbnailRatio;
+}
+
+void DataObject::setThumbnailRatio(float newThumbnailRatio)
+{
+    if (qFuzzyCompare(m_thumbnailRatio, newThumbnailRatio))
+        return;
+    m_thumbnailRatio = newThumbnailRatio;
+    emit thumbnailRatioChanged();
+}
+
+void DataObject::computeThumbnailRatio()
+{
+    QImageReader imageReader(QUrl(m_thumbnail).toLocalFile());
+    // qDebug() << "image ratio:\n" << QUrl(m_thumbnail).toLocalFile() << "\n""size: " << imageReader.size();
+    const QSizeF size = imageReader.size().toSizeF();
+
+    m_thumbnailRatio = size.height() / size.width();
+    emit thumbnailRatioChanged();
 }

@@ -25,6 +25,8 @@ class DataObject : public QObject
 
     Q_PROPERTY(const DataDetails *details READ getDetails CONSTANT FINAL)
 
+    Q_PROPERTY(float thumbnailRatio READ getThumbnailRatio WRITE setThumbnailRatio NOTIFY thumbnailRatioChanged FINAL)
+
 public:
     explicit DataObject(QObject *parent = nullptr);
 
@@ -73,6 +75,12 @@ public:
     const DataDetails *getDetails() const;
     DataDetails &getDetailsRef();
 
+    float getThumbnailRatio() const;
+    void setThumbnailRatio(float newThumbnailRatio);
+
+private slots:
+    void computeThumbnailRatio();
+
 signals:
     void idChanged();
     void offerNameChanged();
@@ -88,6 +96,8 @@ signals:
     void mileageChanged();
     void bodyTypeChanged();
     void transmissionChanged();
+
+    void thumbnailRatioChanged();
 
 private:
     int m_id;
@@ -108,6 +118,8 @@ private:
     QString m_transmission;
 
     DataDetails m_details;
+
+    float m_thumbnailRatio; // height/width
 };
 
 typedef QList<DataObject *> DataObjectList;
