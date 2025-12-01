@@ -112,7 +112,7 @@ Item {
                 id: thumbnailContainer
                 anchors{
                     top: parent.top
-                    topMargin: row.extended? 30 : 4
+                    topMargin: row.extended? 24 : 4
                     left: parent.left
                     leftMargin: 4
                     bottom: parent.bottom
@@ -133,7 +133,6 @@ Item {
                 Image{
                     id: thumbnailImage
                     width: (16.0/9.0) * height
-                    onWidthChanged: console.log(width) // 128 - 300
                     height: parent.height
 
                     source: modelData.thumbnail
