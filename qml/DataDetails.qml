@@ -117,6 +117,15 @@ Item {
                     width: listViewContainer.width
                     height: image.height + 15 // bottom margin
 
+
+                    Rectangle{
+                        id: noImageBorder
+                        anchors.fill: image
+                        color: "transparent"
+                        border.color: "lightgray"
+                        border.width: 2
+                    }
+
                     Image{
                         id: image
                         anchors.centerIn: parent

@@ -98,12 +98,14 @@ Item {
             }
 
             Item{
+                id: thumbnailContainer
                 anchors{
                     top: parent.top
                     bottom: parent.bottom
                     left: parent.left
-                    right: extendButton.left
+                    // right: extendButton.left
                 }
+                width: thumbnailImage.width
 
                 Rectangle{
                     id: noImageBorder
@@ -118,7 +120,7 @@ Item {
                     anchors{
                         topMargin: row.extended? 15 : 4
                         leftMargin: row.extended? 15 : 4
-                        rightMargin: row.extended? 15 : 4
+                        // rightMargin: row.extended? 15 : 4
                         bottomMargin: row.extended? 50 : 4
                         top: parent.top
                         bottom: parent.bottom
@@ -169,6 +171,21 @@ Item {
                     refreshingListView.requestElementDetails(index)
                 }
             }
+            
+            Label{
+                id: titleLabel
+                anchors{
+                    top: parent.top
+                    left: thumbnailContainer.right
+                    leftMargin: 5
+                    right: parent.right
+                }
+
+                elide: Text.ElideRight
+                text: modelData.offerName
+                horizontalAlignment: Text.AlignLeft
+                verticalAlignment: Text.AlignVCenter
+            }
 
             Label{
                 id: extendButton
@@ -180,6 +197,7 @@ Item {
                 height: row.defaultHeight
 
                 text: row.extended ? "^" : "v"
+                font.pixelSize: 20
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
 
